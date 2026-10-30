@@ -11,6 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="platform-3d.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -37,6 +46,19 @@
       </div>
       <div class="hero-foot" aria-hidden="true"><span>OFFSHORE ENGINEERING &amp; CONSTRUCTION</span><span>01 / 03</span></div>
       <div class="hero-scroll-mark" aria-hidden="true"></div>
+    </section>
+
+    <section class="platform3d section-wrap" id="platform">
+      <p class="eyebrow reveal"><span class="eyebrow-line"></span> Interactief model</p>
+      <div class="platform3d-head reveal">
+        <h2>Zelf verkennen.<br><span>Draai het platform.</span></h2>
+        <p>Een interactieve weergave van een offshoreplatform op zee bij zonsondergang. Sleep om te draaien, scroll om in te zoomen.</p>
+      </div>
+      <div class="platform3d-stage reveal" id="platform-stage">
+        <canvas id="platform-canvas" role="img" aria-label="3D-weergave van een offshoreplatform op zee bij zonsondergang, te besturen met de muis of vinger"></canvas>
+        <p class="platform3d-hint" aria-hidden="true">Sleep om te draaien</p>
+        <p class="platform3d-loading" id="platform-loading">Model wordt geladen…</p>
+      </div>
     </section>
 
     <section class="intro section-wrap" id="expertise">
