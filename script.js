@@ -46,16 +46,23 @@ function splitVisibleTextIntoLetters() {
     letterRun.setAttribute('aria-hidden', 'true');
 
     let letterIndex = 0;
+    let word = null;
     Array.from(text).forEach((character) => {
       if (/\s/u.test(character)) {
+        word = null;
         letterRun.append(document.createTextNode(character));
         return;
+      }
+      if (!word) {
+        word = document.createElement('span');
+        word.className = 'letter-word';
+        letterRun.append(word);
       }
       const letter = document.createElement('span');
       letter.className = 'letter-pop';
       letter.style.setProperty('--letter-index', letterIndex);
       letter.textContent = character;
-      letterRun.append(letter);
+      word.append(letter);
       letterIndex += 1;
     });
 
