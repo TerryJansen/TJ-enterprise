@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://terryjansen.github.io/TJ-enterprise/sitemap.xml

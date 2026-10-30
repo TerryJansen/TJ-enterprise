@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "fetch:project-images": "node scripts/download-project-images.mjs",
     "test": "node --test"
   }
 }

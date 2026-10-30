@@ -1,13 +1,23 @@
 # TJ Enterprise
 
-A one-page Dutch company website for TJ Enterprise, an independent offshore platform builder for the oil and gas industry.
+A Dutch-language, multi-page website for TJ Enterprise, an independent offshore platform builder for the oil and gas industry. The site uses a shared industrial design system and contains 18 information pages plus 14 project case pages.
 
-## Run locally
+## Build and preview
 
-Open `index.html` in a browser, or serve this folder with `python -m http.server 8000` and visit `http://localhost:8000`.
+```sh
+npm run build
+npm test
+python -m http.server 8000
+```
 
-Run the checks with `npm test`.
+Open `http://localhost:8000` after building. The static build writes the homepage, nested route pages, a 404 page, `sitemap.xml`, and `robots.txt` to the repository root for GitHub Pages.
 
-## Hero image
+## Content and assets
 
-The homepage expects the supplied photograph at `images/tj-enterprise-offshore.png`. Add that file to display the intended full-bleed hero image.
+- `src/site-data.mjs` contains the project and page content.
+- `scripts/build-site.mjs` generates all static routes.
+- `images/projects/` contains the project images used on the site.
+- `npm run fetch:project-images` re-downloads those images from the approved project source.
+- The shared offshore hero remains `images/tj-enterprise-offshore.png`; the transparent TJ logo is used in the header and footer.
+
+The contact link opens an email draft to `info@tjenterprise.nl`; the site does not send form submissions.
