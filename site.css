@@ -181,3 +181,20 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
 @media(max-width:760px){
   .footer-nav{grid-column:1/-1;justify-self:start;gap:7px 16px}
 }
+
+/* Inhoudelijke tekstblokken op onderliggende pagina's */
+.content-prose{max-width:780px;margin:0 0 58px;border-top:1px solid var(--line)}
+.prose-block{padding:34px 0;border-bottom:1px solid var(--line)}
+.prose-block h3{margin:0 0 14px;font-size:clamp(21px,2.1vw,26px);font-weight:400;letter-spacing:-.03em;color:var(--white)}
+.prose-block p{margin:0 0 14px;color:#b8c2bf;font-size:15px;line-height:1.78}
+.prose-block p:last-child,.prose-block ul:last-child{margin-bottom:0}
+.prose-list{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:11px}
+.prose-list li{position:relative;padding-left:20px;color:#b8c2bf;font-size:14px;line-height:1.65}
+.prose-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--accent)}
+.contact-plain{margin:0 0 10px;color:var(--white);font-size:19px;letter-spacing:-.02em}
+.contact-detail + .contact-detail{margin-top:18px}
+@media(max-width:760px){
+  .content-prose{margin-bottom:42px}
+  .prose-block{padding:26px 0}
+  .prose-block p{font-size:14px}
+}

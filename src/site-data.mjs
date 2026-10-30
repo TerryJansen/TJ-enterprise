@@ -79,7 +79,7 @@ export const projects = [
   },
 ];
 
-export const pages = [
+const basePages = [
   { route: 'diensten', title: 'Diensten', eyebrow: 'Wat we doen', intro: 'TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt. Onze projectervaring strekt zich uit over offshore olie & gas, windenergie, maritieme constructies en industriële projecten.', body: 'Ontdek onze kernactiviteit en de sectoren waarin onze projectervaring ligt.', related: ['diensten/platformbouw', 'diensten/offshore-wind', 'diensten/industrie'] },
   { route: 'diensten/platformbouw', title: 'Offshore platformbouw', eyebrow: 'Kernactiviteit', intro: 'Onafhankelijke bouw van offshoreplatformen voor projecten in de olie- en gassector.', body: 'Van platformconcept tot een constructie die klaar is voor de offshore omgeving: TJ Enterprise richt zich op het bouwen van offshoreplatformen. De projectpagina’s geven een beeld van de uiteenlopende installaties en omgevingen waarin die ervaring is opgedaan.', category: 'olie-gas' },
   { route: 'diensten/offshore-wind', title: 'Offshore wind', eyebrow: 'Projectervaring', intro: 'Offshore windparken vragen om grootschalige constructies, fundaties en infrastructuur op zee.', body: 'Het portfolio bevat projecten aan de Noordzee en daarbuiten, van windparkfundaties tot offshore hoogspanningsstations. Bekijk de bijbehorende cases voor projectcontext en technische gegevens.', category: 'energie' },
@@ -98,3 +98,296 @@ export const pages = [
   { route: 'werken-bij', title: 'Werken bij TJ Enterprise', eyebrow: 'Samen bouwen', intro: 'Interesse in offshore platformbouw of samenwerken met TJ Enterprise?', body: 'Op dit moment publiceren we geen concrete vacatures. Stuur een korte introductie per e-mail om te informeren naar toekomstige mogelijkheden.', related: ['contact'] },
   { route: 'contact', title: 'Contact', eyebrow: 'Neem contact op', intro: 'Bespreek een offshoreproject, stel een vraag of neem contact op over samenwerking.', body: 'Stuur een e-mail naar info@tjenterprise.nl. De knop opent een e-mailconcept in je eigen mailprogramma; er wordt geen formulier verstuurd.' },
 ];
+
+export const pageSections = {
+  'over-ons': [
+    {
+      title: 'Wat we doen',
+      body: [
+        'TJ Enterprise bouwt offshoreplatformen voor de olie- en gassector. Dat werk begint zelden bij een leeg vel: een platform komt voort uit een veldontwikkeling met eigen eisen aan capaciteit, waterdiepte, veiligheid en onderhoud. Onze rol zit in het vertalen van die eisen naar een constructie die gebouwd, getransporteerd en geïnstalleerd kan worden.',
+        'Daarnaast reikt de projectervaring verder dan platformen alleen. Offshore windparken, scheepsconversies, petrochemische installaties en maritieme constructies stellen vergelijkbare eisen aan constructie, logistiek en uitvoering op locatie.',
+      ],
+    },
+    {
+      title: 'Hoe we werken',
+      body: [
+        'Onze aanpak is technisch en praktisch. Beslissingen worden genomen op basis van wat op de werf en op zee werkt, niet alleen op wat op tekening klopt. Dat betekent vroeg meedenken over maakbaarheid, transport en installatie, omdat juist daar de kosten en de risico’s van een offshoreproject liggen.',
+        'We houden de communicatie direct. Korte lijnen met opdrachtgever, werf en onderaannemers voorkomen dat problemen pas zichtbaar worden als ze duur zijn geworden.',
+      ],
+    },
+    {
+      title: 'Wat onafhankelijk betekent',
+      body: [
+        'TJ Enterprise is niet verbonden aan één werf, leverancier of systeem. Die onafhankelijkheid maakt het mogelijk om per project te kiezen wat technisch en economisch het beste uitpakt, in plaats van te werken naar een vooraf vaststaande oplossing.',
+      ],
+    },
+  ],
+  'over-ons/missie': [
+    {
+      title: 'Bouwen voor de werkelijke omstandigheden',
+      body: [
+        'Een offshoreplatform staat decennialang op een plek waar het weer niet meewerkt en onderhoud duur is. Onze missie is om constructies te bouwen die daarop zijn ingericht: bestand tegen belasting en corrosie, toegankelijk voor inspectie en onderhoud, en veilig voor de mensen die er werken.',
+      ],
+    },
+    {
+      title: 'Techniek en uitvoering dicht bij elkaar',
+      body: [
+        'Veel problemen in offshoreprojecten ontstaan op de overgang tussen ontwerp en uitvoering. Wij willen die afstand klein houden door uitvoeringskennis vroeg in het proces in te brengen en door tijdens de bouw betrokken te blijven bij de keuzes die op de werf worden gemaakt.',
+      ],
+    },
+    {
+      title: 'Waar we op sturen',
+      body: [
+        'Een project is wat ons betreft geslaagd als de constructie doet wat ze moet doen, binnen de afgesproken planning en zonder dat er op veiligheid is ingeleverd. Die drie punten wegen zwaarder dan de snelste of goedkoopste route naar een tussentijdse mijlpaal.',
+      ],
+    },
+  ],
+  'over-ons/visie': [
+    {
+      title: 'De sector verandert, de eisen worden zwaarder',
+      body: [
+        'Offshore is al lang niet meer alleen olie en gas. Windparken, elektrificatie en hergebruik van bestaande infrastructuur veranderen wat er op zee gebouwd wordt. Tegelijk worden de eisen aan veiligheid, documentatie en milieu strenger. Wie offshore bouwt, moet met beide bewegingen mee kunnen.',
+      ],
+    },
+    {
+      title: 'Techniek blijft de basis',
+      body: [
+        'Nieuwe toepassingen veranderen de vraagstelling, maar niet de onderliggende techniek. Constructieberekening, materiaalkeuze, lastechniek en installatielogistiek bepalen nog steeds of iets op zee overeind blijft. Wij zien die vakkennis als de kern van het bedrijf en niet als iets dat je per project inhuurt.',
+      ],
+    },
+    {
+      title: 'Samenwerken in de keten',
+      body: [
+        'Offshoreprojecten zijn te groot en te gespecialiseerd om alleen te doen. Werven, ontwerpbureaus, installatiebedrijven en leveranciers leveren allemaal een deel. Onze visie is dat de kwaliteit van een project vooral wordt bepaald door hoe goed die partijen op elkaar aansluiten, en dat daar bewust op gestuurd moet worden.',
+      ],
+    },
+  ],
+  'over-ons/waarden': [
+    {
+      title: 'Veiligheid',
+      body: [
+        'Offshore werken brengt risico’s met zich mee die niet weg te organiseren zijn, alleen beheersbaar te maken. Veiligheid is daarom geen apart hoofdstuk in een projectplan maar een ontwerpuitgangspunt: hoe komt iemand bij een component, hoe wordt die vervangen, en wat gebeurt er als het misgaat.',
+      ],
+    },
+    {
+      title: 'Vakmanschap',
+      body: [
+        'De kwaliteit van een constructie wordt bepaald door de mensen die eraan werken. Wij hechten aan goed uitgevoerd werk, ook op de plekken die later niet meer zichtbaar zijn. Een las die niet gecontroleerd kan worden of een coating die te snel is aangebracht, komt jaren later terug als probleem.',
+      ],
+    },
+    {
+      title: 'Samenwerking',
+      body: [
+        'We werken bijna altijd binnen een grotere projectorganisatie. Dat vraagt om open communicatie: problemen vroeg melden, afspraken vastleggen en duidelijk zijn over wat wel en niet binnen de scope valt. Liever een lastig gesprek vooraf dan een verrassing bij oplevering.',
+      ],
+    },
+  ],
+  diensten: [
+    {
+      title: 'Van vraagstuk tot oplevering',
+      body: [
+        'Een offshoreproject doorloopt een aantal fasen die elk hun eigen risico’s kennen. Hoe eerder uitvoeringskennis wordt ingebracht, hoe minder er later hersteld moet worden.',
+      ],
+      list: [
+        'Uitgangspunten: functie, locatie, waterdiepte en de condities waarop ontworpen wordt',
+        'Maakbaarheid: kan het gebouwd, getransporteerd en geïnstalleerd worden, en met welk materieel',
+        'Fabricage: constructie op de werf, lastechniek, conservering en controle',
+        'Transport en installatie: zeevast maken, hijsen en plaatsen op locatie',
+        'Oplevering: documentatie, certificering en overdracht aan de beheerorganisatie',
+      ],
+    },
+    {
+      title: 'Werken binnen bestaande projectorganisaties',
+      body: [
+        'Offshoreprojecten kennen vaak al een opdrachtgever, een hoofdaannemer en een reeks onderaannemers. Wij sluiten aan op die structuur in plaats van er een eigen laag naast te zetten, en stemmen scope en verantwoordelijkheden vooraf expliciet af.',
+      ],
+    },
+  ],
+  'diensten/platformbouw': [
+    {
+      title: 'Wat platformbouw omvat',
+      body: [
+        'Een offshoreplatform bestaat uit meerdere delen die elk op een andere manier gebouwd en geïnstalleerd worden. De samenhang tussen die delen bepaalt in grote mate het verloop van het project.',
+      ],
+      list: [
+        'Onderbouw: jackets, monopiles of gravity-based structures die de belasting naar de zeebodem brengen',
+        'Topsides: het dek met proces-, energie- en veiligheidsinstallaties',
+        'Modules en skids die apart worden gebouwd en later worden ingehesen',
+        'Leidingwerk, risers en doorvoeren naar subsea-systemen',
+        'Voorzieningen voor toegang, onderhoud en eventueel accommodatie',
+      ],
+    },
+    {
+      title: 'De omstandigheden bepalen het ontwerp',
+      body: [
+        'Waterdiepte, golfbelasting, bodemgesteldheid en de verwachte levensduur sturen vrijwel elke constructieve keuze. Een platform in ondiep water met een korte ontwerplevensduur vraagt om iets anders dan een installatie die decennia in zwaar weer moet blijven staan.',
+        'Daar komt bij dat een platform niet alleen de operationele belasting moet dragen, maar ook de fasen van transport en installatie moet doorstaan. Die tijdelijke situaties zijn vaak maatgevend.',
+      ],
+    },
+    {
+      title: 'Samenwerking op de werf',
+      body: [
+        'Platformbouw gebeurt op werven waar meerdere disciplines tegelijk werken. Planning, volgorde van werkzaamheden en beschikbaarheid van hijsmaterieel bepalen of een bouwfase soepel verloopt. We houden die uitvoeringsrealiteit vanaf het begin in beeld.',
+      ],
+    },
+  ],
+  'diensten/offshore-wind': [
+    {
+      title: 'Wat offshore wind vraagt',
+      body: [
+        'Een windpark op zee is geen enkele grote constructie maar een reeks onderdelen die in serie worden gebouwd en geïnstalleerd. Dat verschuift de nadruk van maatwerk naar herhaalbaarheid en doorlooptijd.',
+      ],
+      list: [
+        'Fundaties: monopiles, jackets of andere draagconstructies voor de turbines',
+        'Overgangsstukken en de voorzieningen voor toegang en onderhoud',
+        'Offshore transformator- en hoogspanningsstations',
+        'Kabelinfrastructuur tussen turbines onderling en naar de kust',
+      ],
+    },
+    {
+      title: 'Schaal en herhaling',
+      body: [
+        'Bij tientallen vrijwel identieke fundaties telt elke afwijking in het bouwproces door over de hele serie. Standaardisatie, vaste controlemomenten en een strakke logistiek tussen fabricagelocatie en installatieschip zijn daarom bepalend voor het resultaat.',
+        'Tegelijk blijft de zee onvoorspelbaar: installatievensters zijn kort en weersafhankelijk, wat betekent dat voorbereiding op de wal zwaarder weegt dan bij veel andere bouwprojecten.',
+      ],
+    },
+  ],
+  'diensten/industrie': [
+    {
+      title: 'Scheepsconversies',
+      body: [
+        'Bij een conversie wordt een bestaand schip aangepast voor een nieuwe taak: een pijplegsysteem, extra kranen, nieuwe machinekamers of uitgebreide accommodatie. Het werk is complex omdat de bestaande constructie, de stabiliteit en de bestaande systemen het kader vormen waarbinnen alles moet passen.',
+      ],
+    },
+    {
+      title: 'Industriële en petrochemische installaties',
+      body: [
+        'Procesinstallaties op land delen veel met offshorebouw: zware equipment, uitgebreid leidingwerk, strenge eisen aan lassen en conservering, en een opleverdossier dat compleet moet zijn. Het verschil zit vooral in logistiek en in de regelgeving die van toepassing is.',
+      ],
+    },
+    {
+      title: 'Maritieme constructies',
+      body: [
+        'Kranen, steigers, laadvoorzieningen en andere constructies in de haven of op het water vragen om een combinatie van staalbouw en kennis van de maritieme omgeving. Belasting door golven, getij en zoutwatercorrosie speelt ook hier een hoofdrol.',
+      ],
+    },
+  ],
+  expertise: [
+    {
+      title: 'Hoe het portfolio is opgebouwd',
+      body: [
+        'De projecten op deze site zijn ingedeeld in vijf sectoren. Die indeling volgt het type installatie en de omgeving waarin gewerkt is, niet de omvang van het project. Een klein maar technisch complex project kan meer zeggen over de aard van het werk dan een groot project met een eenvoudige scope.',
+      ],
+    },
+    {
+      title: 'Wat je op een projectpagina vindt',
+      body: [
+        'Iedere case beschrijft de projectcontext en de belangrijkste technische kerngegevens, zoals vermogen, afmetingen, capaciteit of locatie. We beperken ons daarbij tot informatie die openbaar is; niet-openbare fabricage- of locatiegegevens worden niet getoond.',
+        'Voor vragen over de specifieke rol van TJ Enterprise binnen een project kun je contact opnemen.',
+      ],
+    },
+  ],
+  projecten: [
+    {
+      title: 'Over de projectinformatie',
+      body: [
+        'De projectpagina’s beschrijven de context en de technische kerngegevens van installaties waarmee ervaring is opgedaan. De gegevens zijn gebaseerd op openbare projectinformatie. Waar fabricagelocaties of contractuele details niet openbaar zijn gemaakt, worden ze hier ook niet vermeld.',
+      ],
+    },
+  ],
+  'werken-bij': [
+    {
+      title: 'Wie we zoeken',
+      body: [
+        'Er staan op dit moment geen concrete vacatures online. Dat betekent niet dat er geen gesprek mogelijk is: in de offshorebouw komt werk vaak projectgebonden en op korte termijn beschikbaar. Een introductie op voorhand helpt om snel te kunnen schakelen.',
+      ],
+      list: [
+        'Constructie- en werkvoorbereiding voor staalbouw en offshore constructies',
+        'Lastechniek, inspectie en kwaliteitsborging',
+        'Projectbegeleiding en toezicht op de werf',
+        'Transport-, hijs- en installatie-engineering',
+      ],
+    },
+    {
+      title: 'Een open sollicitatie',
+      body: [
+        'Stuur een korte introductie per e-mail: wie je bent, waar je aan hebt gewerkt en wat voor werk je zoekt. Een uitgebreid cv is niet nodig voor een eerste contact. We reageren ook als er op dat moment niets passends is.',
+      ],
+    },
+    {
+      title: 'Samenwerken als partner of zzp’er',
+      body: [
+        'Naast mensen in loondienst werken we samen met zelfstandigen en gespecialiseerde bedrijven. Ook daarvoor geldt: laat weten wat je doet en in welke fase van een project je meestal wordt ingeschakeld.',
+      ],
+    },
+  ],
+  contact: [
+    {
+      title: 'Waarmee we kunnen helpen',
+      body: [
+        'Een eerste gesprek gaat meestal over de aard van het project en wat er al ligt. Hoe concreter de uitgangspunten, hoe sneller duidelijk is of we iets voor elkaar kunnen betekenen.',
+      ],
+      list: [
+        'Een offshoreproject waarvoor je een bouwpartner zoekt',
+        'Een vraag over maakbaarheid, transport of installatie van een constructie',
+        'Samenwerking als werf, leverancier of onderaannemer',
+        'Een open sollicitatie of een voorstel als zelfstandige',
+      ],
+    },
+    {
+      title: 'Wat je kunt verwachten',
+      body: [
+        'Je mail komt rechtstreeks binnen, niet in een ticketsysteem. We reageren met een inhoudelijk antwoord of met een voorstel voor een gesprek, ook als een project niet binnen onze scope valt.',
+      ],
+    },
+  ],
+  'projecten/olie-gas': [
+    {
+      title: 'Wat deze projecten gemeen hebben',
+      body: [
+        'Olie- en gasprojecten offshore draaien om installaties die productie, verwerking en transport combineren op een beperkt oppervlak, ver van de wal. Dat stelt hoge eisen aan veiligheid, redundantie en onderhoudbaarheid.',
+        'De projecten in deze categorie lopen uiteen van vaste platformen met jacket en topsides tot drijvende productie- en opslagschepen en diepwaterontwikkelingen met uitgebreide subsea-infrastructuur.',
+      ],
+    },
+  ],
+  'projecten/maritiem': [
+    {
+      title: 'Wat deze projecten gemeen hebben',
+      body: [
+        'Maritieme projecten gaan over schepen en zwaar materieel dat zelf het werktuig is: kraanschepen, pijplegschepen en vergelijkbare vaartuigen. De constructie moet niet alleen de eigen belasting dragen, maar ook de krachten van het werk dat ermee wordt uitgevoerd.',
+        'Bij conversies komt daar een extra beperking bij: de bestaande romp, stabiliteit en systemen bepalen wat er mogelijk is.',
+      ],
+    },
+  ],
+  'projecten/energie': [
+    {
+      title: 'Wat deze projecten gemeen hebben',
+      body: [
+        'Offshore windprojecten worden gekenmerkt door schaal en herhaling: tientallen vrijwel identieke fundaties, een beperkt installatievenster en een strakke koppeling tussen fabricage, transport en installatie.',
+        'Naast de turbinefundaties omvat deze categorie ook offshore hoogspanningsstations en de kabelinfrastructuur die het park met het net verbindt.',
+      ],
+    },
+  ],
+  'projecten/defensie': [
+    {
+      title: 'Wat dit project kenmerkt',
+      body: [
+        'Defensiegerelateerde projecten werken met eigen technische normen en met zwaardere eisen aan documentatie, traceerbaarheid en acceptatie. Niet alle projectgegevens zijn openbaar.',
+        'De informatie op deze site blijft daarom beperkt tot wat openbaar is vermeld; fabricagelocaties en contractuele details die niet zijn vrijgegeven, worden niet getoond.',
+      ],
+    },
+  ],
+  'projecten/petrochemie': [
+    {
+      title: 'Wat deze projecten kenmerkt',
+      body: [
+        'Petrochemische installaties combineren zware equipment met uitgebreid leidingwerk en strenge eisen aan lassen, conservering en keuring. Het opleverdossier is daarbij net zo bepalend als de constructie zelf.',
+        'Werkzaamheden lopen vaak over meerdere locaties en landen, waardoor afstemming tussen fabricage, transport en montage op de bouwplaats zwaar weegt.',
+      ],
+    },
+  ],
+};
+
+export const pages = basePages.map((page) => (
+  pageSections[page.route] ? { ...page, sections: pageSections[page.route] } : page
+));

@@ -59,9 +59,9 @@ test('homepage omits the 3D vessel animation while keeping the video and hero', 
   assert.match(homepage, /id="homepage-background-video"/);
   assert.match(homepage, /Gebouwd voor/);
   assert.match(homepage, /styles\.css\?v=4/);
-  assert.match(homepage, /site\.css\?v=5/);
+  assert.match(homepage, /site\.css\?v=6/);
   assert.match(homepage, /script\.js\?v=5/);
-  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=5/);
+  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=6/);
 });
 
 test('homepage includes a muted video background, a still poster, and a motion-aware toggle', async () => {

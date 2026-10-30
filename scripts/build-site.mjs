@@ -48,7 +48,7 @@ function header(from) {
 
 function footer(from) {
   return `<section class="contact-band reveal"><div class="contact-inner"><p class="eyebrow"><span class="eyebrow-line"></span>Volgende stap</p><h2>Een project op zee?<br><span>Laten we praten.</span></h2><a class="button button-outline" href="mailto:info@tjenterprise.nl">Neem contact op <span aria-hidden="true">↗</span></a></div><span class="contact-watermark" aria-hidden="true">TJ</span></section>
-<footer class="site-footer"><a class="brand footer-brand" href="${routeHref(from, '')}"><img class="brand-logo" src="${asset(from, 'images/tj-enterprise-logo-transparent.png')}" alt="TJ Enterprise"></a><p>Onafhankelijke offshore platformbouw</p><nav class="footer-nav" aria-label="Footernavigatie">${navItems.map(([route, label]) => `<a href="${routeHref(from, route)}">${label}</a>`).join('')}</nav><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl</a><p class="copyright">© <span id="year"></span> TJ Enterprise</p></footer>`;
+<footer class="site-footer"><a class="brand footer-brand" href="${routeHref(from, '')}"><img class="brand-logo" src="${asset(from, 'images/tj-enterprise-logo-transparent.png')}" alt="TJ Enterprise"></a><p>Onafhankelijke offshore platformbouw<br>Vlaardingen, Nederland</p><nav class="footer-nav" aria-label="Footernavigatie">${navItems.map(([route, label]) => `<a href="${routeHref(from, route)}">${label}</a>`).join('')}</nav><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl</a><p class="copyright">© <span id="year"></span> TJ Enterprise</p></footer>`;
 }
 
 function shell({ route, title, description, content, image, homepage = false }) {
@@ -71,7 +71,7 @@ function shell({ route, title, description, content, image, homepage = false }) 
   <meta property="og:image" content="${esc(share)}">
   <title>${esc(title)} | TJ Enterprise</title>
   <link rel="stylesheet" href="${asset(route, 'styles.css?v=4')}">
-  <link rel="stylesheet" href="${asset(route, 'site.css?v=5')}">
+  <link rel="stylesheet" href="${asset(route, 'site.css?v=6')}">
   <script src="${asset(route, 'script.js?v=5')}" defer></script>
 </head>
 <body${route ? ` class="interior-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"` : ` class="home-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"`}>
@@ -139,7 +139,7 @@ function projectsContent(page) {
   const category = page.category ? categories.find((item) => item.slug === page.category) : null;
   const items = category ? projects.filter((project) => project.category === category.slug) : projects;
   const heroImage = items[0]?.image || 'images/tj-enterprise-offshore.png';
-  return `${hero({ route: page.route, title: page.title, eyebrow: page.eyebrow, intro: page.intro, image: heroImage })}<section class="section-wrap archive-section">${breadcrumbs(page.route, page.title)}<div class="section-heading archive-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>${category ? 'Projectcategorie' : 'Portfolio'}</p><h2>${category ? esc(category.label) : 'Alle projecten'} <span>(${items.length})</span></h2></div><p class="section-heading-copy">${esc(page.body)}</p></div>${categoryLinks(page.route, category?.slug || 'all')}${projectGrid(page.route, items)}</section>`;
+  return `${hero({ route: page.route, title: page.title, eyebrow: page.eyebrow, intro: page.intro, image: heroImage })}<section class="section-wrap archive-section">${breadcrumbs(page.route, page.title)}<div class="section-heading archive-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>${category ? 'Projectcategorie' : 'Portfolio'}</p><h2>${category ? esc(category.label) : 'Alle projecten'} <span>(${items.length})</span></h2></div><p class="section-heading-copy">${esc(page.body)}</p></div>${categoryLinks(page.route, category?.slug || 'all')}${projectGrid(page.route, items)}${proseSections(page.sections)}</section>`;
 }
 
 function projectContent(project) {
@@ -152,6 +152,11 @@ function projectContent(project) {
   ${related.length ? `<section class="section-wrap related-section"><div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>Verder ontdekken</p><h2>Meer projecten <span>in dit domein.</span></h2></div>${link(route, `projecten/${project.category}`, `Alle ${esc(category?.label || 'projecten')}`)}</div>${projectGrid(route, related)}</section>` : ''}`;
 }
 
+function proseSections(sections) {
+  if (!sections?.length) return '';
+  return `<div class="content-prose">${sections.map((section) => `<section class="prose-block reveal"><h3>${esc(section.title)}</h3>${(section.body || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}${section.list?.length ? `<ul class="prose-list">${section.list.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}</div>`;
+}
+
 function genericContent(page) {
   const heroImage = page.category ? projects.find((item) => item.category === page.category)?.image : undefined;
   let extra = '';
@@ -160,14 +165,14 @@ function genericContent(page) {
   if (page.route === 'expertise') extra = `${pageCards(page.route, page.related)}<div class="subsection-heading"><p class="eyebrow">Ervaring in vijf sectoren</p><h2>Sectoren waarin <span>we werken.</span></h2></div>${categoryCards(page.route)}`;
   if (page.route === 'over-ons') extra = pageCards(page.route, page.related);
   if (page.related && !['diensten', 'over-ons', 'expertise'].includes(page.route)) extra = pageCards(page.route, page.related);
-  if (page.route === 'contact') extra = `<div class="contact-detail reveal"><span class="contact-label">E-mail</span><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl <span aria-hidden="true">↗</span></a><p>De knop opent een e-mailconcept in je eigen mailprogramma. Er wordt geen formulier verstuurd.</p></div>`;
+  if (page.route === 'contact') extra = `<div class="contact-detail reveal"><span class="contact-label">E-mail</span><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl <span aria-hidden="true">↗</span></a><p>De knop opent een e-mailconcept in je eigen mailprogramma. Er wordt geen formulier verstuurd.</p></div><div class="contact-detail reveal"><span class="contact-label">Vestiging</span><p class="contact-plain">Vlaardingen, Nederland</p><p>We werken vanuit de regio Rotterdam en zijn beschikbaar voor projectoverleg op locatie, bij een werf of bij de opdrachtgever.</p></div>`;
   if (page.route === 'werken-bij') extra = `<div class="contact-detail reveal"><span class="contact-label">Open gesprek</span><a href="mailto:info@tjenterprise.nl?subject=Werken%20bij%20TJ%20Enterprise">Stuur een introductie <span aria-hidden="true">↗</span></a><p>Er staan momenteel geen concrete vacatures online.</p></div>`;
   if (page.category) {
     const category = categories.find((item) => item.slug === page.category);
     const items = projects.filter((item) => item.category === page.category);
     extra = `<div class="section-heading compact-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>Projecten</p><h2>${esc(category?.label || '')} <span>(${items.length})</span></h2></div></div>${projectGrid(page.route, items)}${link(page.route, 'projecten', 'Terug naar alle projecten')}`;
   }
-  return `${hero({ route: page.route, title: page.title, eyebrow: page.eyebrow, intro: page.intro, image: heroImage })}<section class="section-wrap content-section"><div class="content-narrow"><p class="eyebrow"><span class="eyebrow-line"></span>${esc(page.eyebrow)}</p><h2>${esc(page.title)} <span>in het kort.</span></h2><p class="content-lead">${esc(page.body)}</p>${page.route.startsWith('diensten') ? link(page.route, 'projecten', 'Bekijk projectervaring') : ''}</div>${extra}</section>`;
+  return `${hero({ route: page.route, title: page.title, eyebrow: page.eyebrow, intro: page.intro, image: heroImage })}<section class="section-wrap content-section"><div class="content-narrow"><p class="eyebrow"><span class="eyebrow-line"></span>${esc(page.eyebrow)}</p><h2>${esc(page.title)} <span>in het kort.</span></h2><p class="content-lead">${esc(page.body)}</p>${page.route.startsWith('diensten') ? link(page.route, 'projecten', 'Bekijk projectervaring') : ''}</div>${proseSections(page.sections)}${extra}</section>`;
 }
 
 async function writePage(route, html) {
