@@ -56,16 +56,16 @@ function shell({ route, title, description, content, image, interactive3d = fals
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="${esc(canonical)}">
   <link rel="icon" type="image/png" href="${asset(route, 'images/tj-enterprise-favicon.png')}">
-${route ? `  <link rel="preload" as="image" href="${asset(route, 'images/tj-enterprise-offshore.png')}">\n` : ''}  <meta property="og:type" content="website">
+${route ? `  <link rel="preload" as="image" href="${asset(route, image || 'images/tj-enterprise-offshore.png')}">\n` : ''}  <meta property="og:type" content="website">
   <meta property="og:title" content="${esc(title)} | TJ Enterprise">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${esc(share)}">
   <title>${esc(title)} | TJ Enterprise</title>
   <link rel="stylesheet" href="${asset(route, 'styles.css?v=4')}">
-  <link rel="stylesheet" href="${asset(route, 'site.css?v=1')}">
+  <link rel="stylesheet" href="${asset(route, 'site.css?v=2')}">
   <script src="${asset(route, 'script.js?v=4')}" defer></script>
 ${interactive3d ? `  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script><script type="module" src="${asset(route, 'platform-3d.js?v=5')}"></script>\n` : ''}</head>
-<body>
+<body${route ? ` class="interior-page" style="--page-backdrop:url('${esc(asset(route, image || 'images/tj-enterprise-offshore.png'))}')"` : ''}>
 ${header(route)}
 <main id="main">${content}</main>
 ${footer(route)}
@@ -173,7 +173,7 @@ await writePage('', shell({ route: '', title: 'Offshoreplatformen voor de open z
 
 for (const page of pages.filter((item) => item.route === 'projecten' || item.route.startsWith('projecten/'))) {
   if (page.route === 'projecten' || page.category) {
-    const html = shell({ route: page.route, title: page.title, description: page.intro, content: projectsContent(page), image: projects.find((project) => project.category === page.category)?.image });
+    const html = shell({ route: page.route, title: page.title, description: page.intro, content: projectsContent(page), image: projects.find((project) => !page.category || project.category === page.category)?.image });
     await writePage(page.route, html);
   }
 }

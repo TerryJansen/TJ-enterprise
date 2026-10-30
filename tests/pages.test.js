@@ -41,7 +41,22 @@ test('homepage retains the interactive crane-vessel scene from the remote update
   assert.match(homepage, /type="importmap"/);
   assert.match(homepage, /src="(?:\.\/)?platform-3d\.js\?v=5"/);
   assert.match(homepage, /styles\.css\?v=4/);
-  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css/);
+  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=2/);
+});
+
+test('interior pages use one persistent route photo for their backdrop', async () => {
+  const homepage = await readFile(localFile(''), 'utf8');
+  const projectsPage = await readFile(localFile('projecten'), 'utf8');
+  const css = await readFile(path.join(root, 'site.css'), 'utf8');
+  assert.doesNotMatch(homepage, /class="interior-page"/);
+  const heroImage = projectsPage.match(/<img class="hero-image" src="([^"]+)"/)?.[1];
+  const backdrop = projectsPage.match(/style="--page-backdrop:url\('([^']+)'\)"/)?.[1];
+  const preload = projectsPage.match(/<link rel="preload" as="image" href="([^"]+)"/)?.[1];
+  assert.ok(heroImage, 'projects page should have a hero image');
+  assert.equal(backdrop, heroImage, 'the page backdrop should reuse the hero photo');
+  assert.equal(preload, heroImage, 'the route hero photo should be preloaded');
+  assert.match(css, /body\.interior-page::before\{background:[^}]*var\(--page-backdrop\)/);
+  assert.match(css, /\.interior-page \.page-hero \.hero-image,.interior-page \.page-hero \.hero-shade\{display:none\}/);
 });
 
 test('every project has a unique detail page and a local project image', async () => {

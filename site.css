@@ -1,6 +1,8 @@
 :root{--accent-soft:#f2b36d;--panel:rgba(11,17,19,.62);--panel-line:rgba(246,248,246,.19);--copy:#d2d9d6;--content-width:1440px}
 html{scroll-padding-top:92px}
 body{background-color:var(--ink)}
+body.interior-page::before{background:linear-gradient(180deg,rgba(10,16,18,.32) 0%,rgba(10,16,18,.72) 100%),linear-gradient(90deg,rgba(10,16,18,.54) 0%,rgba(10,16,18,.18) 70%),var(--page-backdrop) var(--platform-position)/cover no-repeat}
+.interior-page .page-hero .hero-image,.interior-page .page-hero .hero-shade{display:none}
 .site-header{position:fixed;z-index:20;background:linear-gradient(180deg,rgba(9,14,16,.83),rgba(9,14,16,.42));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.14)}
 .site-nav>a[aria-current=page]{color:var(--accent)!important}
 .brand-logo{max-width:190px;object-fit:contain}
