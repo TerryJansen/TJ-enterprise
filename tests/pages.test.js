@@ -52,8 +52,8 @@ test('homepage includes a muted video background, a still poster, and a motion-a
   const css = await readFile(path.join(root, 'site.css'), 'utf8');
   const script = await readFile(path.join(root, 'script.js'), 'utf8');
 
-  assert.match(homepage, /<video class="homepage-background-video" id="homepage-background-video" muted loop playsinline preload="metadata" poster="\.\/images\/homepage-background-poster\.jpg" aria-hidden="true" tabindex="-1">/);
-  assert.match(homepage, /<source src="\.\/images\/homepage-background\.mp4" type="video\/mp4">/);
+  assert.match(homepage, /<video class="homepage-background-video" id="homepage-background-video" muted loop playsinline preload="metadata" poster="\.\/images\/homepage-background-poster\.jpg\?v=2" aria-hidden="true" tabindex="-1">/);
+  assert.match(homepage, /<source src="\.\/images\/homepage-background\.mp4\?v=2" type="video\/mp4">/);
   assert.match(homepage, /id="homepage-background-video-toggle"[^>]*aria-pressed="false" hidden>Speel video<\/button>/);
   assert.doesNotMatch(notFound, /id="homepage-background-video"/);
   assert.match(css, /\.homepage-background-video\{position:fixed;z-index:-2;/);
