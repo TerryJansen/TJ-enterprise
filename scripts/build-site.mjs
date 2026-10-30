@@ -24,9 +24,17 @@ function link(from, to, text, className = 'text-link') {
   return `<a class="${className}" href="${routeHref(from, to)}">${text}<span aria-hidden="true">↗</span></a>`;
 }
 
+const navItems = [
+  ['projecten', 'Projecten'],
+  ['diensten', 'Diensten'],
+  ['expertise', 'Expertise'],
+  ['over-ons', 'Over TJ'],
+  ['werken-bij', 'Werken bij'],
+  ['contact', 'Contact'],
+];
+
 function nav(from) {
-  const items = [['projecten', 'Projecten'], ['diensten', 'Diensten'], ['over-ons', 'Over TJ'], ['contact', 'Contact']];
-  return items.map(([route, label]) => `<a href="${routeHref(from, route)}"${from === route ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  return navItems.map(([route, label]) => `<a href="${routeHref(from, route)}"${from === route ? ' aria-current="page"' : ''}>${label}</a>`).join('');
 }
 
 function header(from) {
@@ -40,7 +48,7 @@ function header(from) {
 
 function footer(from) {
   return `<section class="contact-band reveal"><div class="contact-inner"><p class="eyebrow"><span class="eyebrow-line"></span>Volgende stap</p><h2>Een project op zee?<br><span>Laten we praten.</span></h2><a class="button button-outline" href="mailto:info@tjenterprise.nl">Neem contact op <span aria-hidden="true">↗</span></a></div><span class="contact-watermark" aria-hidden="true">TJ</span></section>
-<footer class="site-footer"><a class="brand footer-brand" href="${routeHref(from, '')}"><img class="brand-logo" src="${asset(from, 'images/tj-enterprise-logo-transparent.png')}" alt="TJ Enterprise"></a><p>Onafhankelijke offshore platformbouw</p><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl</a><p class="copyright">© <span id="year"></span> TJ Enterprise</p></footer>`;
+<footer class="site-footer"><a class="brand footer-brand" href="${routeHref(from, '')}"><img class="brand-logo" src="${asset(from, 'images/tj-enterprise-logo-transparent.png')}" alt="TJ Enterprise"></a><p>Onafhankelijke offshore platformbouw</p><nav class="footer-nav" aria-label="Footernavigatie">${navItems.map(([route, label]) => `<a href="${routeHref(from, route)}">${label}</a>`).join('')}</nav><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl</a><p class="copyright">© <span id="year"></span> TJ Enterprise</p></footer>`;
 }
 
 function shell({ route, title, description, content, image, interactive3d = false, homepage = false }) {
@@ -63,7 +71,7 @@ function shell({ route, title, description, content, image, interactive3d = fals
   <meta property="og:image" content="${esc(share)}">
   <title>${esc(title)} | TJ Enterprise</title>
   <link rel="stylesheet" href="${asset(route, 'styles.css?v=4')}">
-  <link rel="stylesheet" href="${asset(route, 'site.css?v=4')}">
+  <link rel="stylesheet" href="${asset(route, 'site.css?v=5')}">
   <script src="${asset(route, 'script.js?v=5')}" defer></script>
 ${interactive3d ? `  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script><script type="module" src="${asset(route, 'platform-3d.js?v=5')}"></script>\n` : ''}</head>
 <body${route ? ` class="interior-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"` : ` class="home-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"`}>
@@ -121,8 +129,9 @@ function breadcrumbs(from, label, parent = 'projecten') {
 function homeContent() {
   const intro = `<section class="section-wrap intro-panel reveal" id="aanpak"><p class="eyebrow"><span class="eyebrow-line"></span>Onafhankelijk. Technisch. Offshore.</p><div class="intro-grid"><h2>Gebouwd voor de <span>complexiteit van zee.</span></h2><div class="intro-text"><p>TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt voor de olie- en gassector. Onze projectervaring omvat ook offshore wind, maritieme constructies en industriële projecten.</p>${link('', 'over-ons', 'Meer over TJ Enterprise')}</div></div></section>
 <section class="section-wrap projects-section"><div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>Geselecteerde projecten</p><h2>Werk dat <span>verder reikt.</span></h2></div>${link('', 'projecten', 'Bekijk alle projecten')}</div>${projectGrid('', projects.slice(0, 4))}</section>
-<section class="section-wrap sectors-section" id="expertise"><div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>Ervaring in vijf sectoren</p><h2>Van platform tot <span>windpark.</span></h2></div><p class="section-heading-copy">Een selectie van projecten in offshore, energie en industrie.</p></div>${categoryCards('')}</section>
-<section class="section-wrap approach-section"><div class="approach-card reveal"><p class="eyebrow"><span class="eyebrow-line"></span>Onze kern</p><h2>Offshore<br><span>platformbouw.</span></h2><p>Onafhankelijke bouw van offshoreplatformen voor de olie- en gassector.</p>${link('', 'diensten/platformbouw', 'Ontdek onze expertise')}</div><div class="approach-image"><img src="images/tj-enterprise-offshore.png" alt="Offshore kraanschip Sleipnir bij zonsondergang" loading="lazy"></div></section>`;
+<section class="section-wrap sectors-section" id="expertise"><div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>Ervaring in vijf sectoren</p><h2>Van platform tot <span>windpark.</span></h2></div>${link('', 'expertise', 'Bekijk onze expertise')}</div>${categoryCards('')}</section>
+<section class="section-wrap approach-section"><div class="approach-card reveal"><p class="eyebrow"><span class="eyebrow-line"></span>Onze kern</p><h2>Offshore<br><span>platformbouw.</span></h2><p>Onafhankelijke bouw van offshoreplatformen voor de olie- en gassector.</p>${link('', 'diensten/platformbouw', 'Ontdek onze expertise')}</div><div class="approach-image"><img src="images/tj-enterprise-offshore.png" alt="Offshore kraanschip Sleipnir bij zonsondergang" loading="lazy"></div></section>
+<section class="section-wrap intro-panel reveal" id="werken-bij"><p class="eyebrow"><span class="eyebrow-line"></span>Werken bij TJ</p><div class="intro-grid"><h2>Meebouwen aan <span>projecten op zee.</span></h2><div class="intro-text"><p>Er staan op dit moment geen concrete vacatures online. Heb je ervaring in offshore platformbouw, of wil je als partner samenwerken? Stuur een korte introductie en we nemen contact op.</p>${link('', 'werken-bij', 'Werken bij TJ Enterprise')}</div></div></section>`;
   const platform3d = `<section class="platform3d section-wrap" id="platform"><p class="eyebrow reveal"><span class="eyebrow-line"></span>Interactief model</p><div class="platform3d-head reveal"><h2>Zelf verkennen.<br><span>Draai het schip.</span></h2><p>Een interactieve weergave van een offshore kraanschip op zee bij zonsondergang. Sleep om te draaien, scroll om in te zoomen.</p></div><div class="platform3d-stage reveal" id="platform-stage"><canvas id="platform-canvas" role="img" aria-label="3D-weergave van een semi-submersible offshore kraanschip op zee bij zonsondergang, te besturen met de muis of vinger"></canvas><p class="platform3d-hint" aria-hidden="true">Sleep om te draaien</p><p class="platform3d-loading" id="platform-loading">Model wordt geladen…</p></div></section>`;
   return `${hero({ route: '', title: 'Gebouwd voor de open zee.', titleHtml: 'Gebouwd voor<br><span>de open zee.</span>', eyebrow: 'Onafhankelijke offshorebouwer', intro: 'Offshoreplatformen gebouwd voor de wereldwijde olie- en gassector.', home: true })}${platform3d}${intro}`;
 }
@@ -149,8 +158,9 @@ function genericContent(page) {
   let extra = '';
   if (page.route === 'diensten' || page.route === 'expertise') extra = categoryCards(page.route);
   if (page.route === 'diensten') extra += `<div class="subsection-heading"><p class="eyebrow">Onze focus</p><h2>Een heldere <span>scope.</span></h2></div>${pageCards(page.route, page.related)}`;
+  if (page.route === 'expertise') extra = `${pageCards(page.route, page.related)}<div class="subsection-heading"><p class="eyebrow">Ervaring in vijf sectoren</p><h2>Sectoren waarin <span>we werken.</span></h2></div>${categoryCards(page.route)}`;
   if (page.route === 'over-ons') extra = pageCards(page.route, page.related);
-  if (page.related && !['diensten', 'over-ons'].includes(page.route)) extra = pageCards(page.route, page.related);
+  if (page.related && !['diensten', 'over-ons', 'expertise'].includes(page.route)) extra = pageCards(page.route, page.related);
   if (page.route === 'contact') extra = `<div class="contact-detail reveal"><span class="contact-label">E-mail</span><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl <span aria-hidden="true">↗</span></a><p>De knop opent een e-mailconcept in je eigen mailprogramma. Er wordt geen formulier verstuurd.</p></div>`;
   if (page.route === 'werken-bij') extra = `<div class="contact-detail reveal"><span class="contact-label">Open gesprek</span><a href="mailto:info@tjenterprise.nl?subject=Werken%20bij%20TJ%20Enterprise">Stuur een introductie <span aria-hidden="true">↗</span></a><p>Er staan momenteel geen concrete vacatures online.</p></div>`;
   if (page.category) {

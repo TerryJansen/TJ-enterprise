@@ -33,6 +33,26 @@ test('build emits every information page and all 14 project detail routes', asyn
   assert.equal((sitemap.match(/<loc>/g) || []).length, 32);
 });
 
+test('every top-level section is reachable from the header and footer navigation', async () => {
+  const sections = ['projecten', 'diensten', 'expertise', 'over-ons', 'werken-bij', 'contact'];
+  for (const route of routeList) {
+    const html = await readFile(localFile(route), 'utf8');
+    const headerNav = html.match(/<nav class="site-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+    const footerNav = html.match(/<nav class="footer-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+    assert.ok(headerNav, `missing header nav on /${route}`);
+    assert.ok(footerNav, `missing footer nav on /${route}`);
+    for (const section of sections) {
+      for (const [name, nav] of [['header', headerNav], ['footer', footerNav]]) {
+        const targets = htmlLocalTargets(nav).map((href) => path.resolve(root, route, href));
+        assert.ok(
+          targets.includes(path.join(root, section)),
+          `${name} nav on /${route} does not link to /${section}`,
+        );
+      }
+    }
+  }
+});
+
 test('homepage retains the interactive crane-vessel scene from the remote update', async () => {
   const homepage = await readFile(localFile(''), 'utf8');
   assert.match(homepage, /id="platform-stage"/);
@@ -41,9 +61,9 @@ test('homepage retains the interactive crane-vessel scene from the remote update
   assert.match(homepage, /type="importmap"/);
   assert.match(homepage, /src="(?:\.\/)?platform-3d\.js\?v=5"/);
   assert.match(homepage, /styles\.css\?v=4/);
-  assert.match(homepage, /site\.css\?v=4/);
+  assert.match(homepage, /site\.css\?v=5/);
   assert.match(homepage, /script\.js\?v=5/);
-  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=4/);
+  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=5/);
 });
 
 test('homepage includes a muted video background, a still poster, and a motion-aware toggle', async () => {

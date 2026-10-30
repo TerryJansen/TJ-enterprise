@@ -165,3 +165,19 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .case-image{aspect-ratio:1.05}
 }
 @media(max-width:760px){.home-page .background-video-toggle{right:7vw;bottom:16px}}
+
+/* Uitgebreide navigatie: zes secties + CTA */
+@media(min-width:761px){
+  .site-nav{gap:clamp(18px,2.5vw,40px)}
+}
+@media(min-width:761px) and (max-width:1180px){
+  .site-nav{gap:20px;font-size:12px}
+  .nav-cta{gap:12px;padding:11px 14px}
+}
+/* Footernavigatie */
+.footer-nav{display:flex;flex-wrap:wrap;align-items:center;gap:7px 22px;font-size:11px}
+.footer-nav a{color:#aeb9b7;transition:color .2s}
+.footer-nav a:hover,.footer-nav a:focus-visible{color:var(--accent)}
+@media(max-width:760px){
+  .footer-nav{grid-column:1/-1;justify-self:start;gap:7px 16px}
+}
