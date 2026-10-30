@@ -53,13 +53,11 @@ test('every top-level section is reachable from the header and footer navigation
   }
 });
 
-test('homepage retains the interactive crane-vessel scene from the remote update', async () => {
+test('homepage omits the 3D vessel animation while keeping the video and hero', async () => {
   const homepage = await readFile(localFile(''), 'utf8');
-  assert.match(homepage, /id="platform-stage"/);
-  assert.match(homepage, /id="platform-canvas"/);
-  assert.match(homepage, /Draai het schip\./);
-  assert.match(homepage, /type="importmap"/);
-  assert.match(homepage, /src="(?:\.\/)?platform-3d\.js\?v=5"/);
+  assert.doesNotMatch(homepage, /id="platform-stage"|id="platform-canvas"|platform-3d\.js|type="importmap"/);
+  assert.match(homepage, /id="homepage-background-video"/);
+  assert.match(homepage, /Gebouwd voor/);
   assert.match(homepage, /styles\.css\?v=4/);
   assert.match(homepage, /site\.css\?v=5/);
   assert.match(homepage, /script\.js\?v=5/);

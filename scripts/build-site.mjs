@@ -51,7 +51,7 @@ function footer(from) {
 <footer class="site-footer"><a class="brand footer-brand" href="${routeHref(from, '')}"><img class="brand-logo" src="${asset(from, 'images/tj-enterprise-logo-transparent.png')}" alt="TJ Enterprise"></a><p>Onafhankelijke offshore platformbouw</p><nav class="footer-nav" aria-label="Footernavigatie">${navItems.map(([route, label]) => `<a href="${routeHref(from, route)}">${label}</a>`).join('')}</nav><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl</a><p class="copyright">© <span id="year"></span> TJ Enterprise</p></footer>`;
 }
 
-function shell({ route, title, description, content, image, interactive3d = false, homepage = false }) {
+function shell({ route, title, description, content, image, homepage = false }) {
   const canonical = `${publicUrl}${route ? `${route}/` : ''}`;
   const share = `${publicUrl}${image || 'images/tj-enterprise-offshore.png'}`;
   return `<!doctype html>
@@ -73,7 +73,7 @@ function shell({ route, title, description, content, image, interactive3d = fals
   <link rel="stylesheet" href="${asset(route, 'styles.css?v=4')}">
   <link rel="stylesheet" href="${asset(route, 'site.css?v=5')}">
   <script src="${asset(route, 'script.js?v=5')}" defer></script>
-${interactive3d ? `  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script><script type="module" src="${asset(route, 'platform-3d.js?v=5')}"></script>\n` : ''}</head>
+</head>
 <body${route ? ` class="interior-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"` : ` class="home-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"`}>
 ${homepage ? `<video class="homepage-background-video" id="homepage-background-video" muted loop playsinline preload="metadata" poster="${asset(route, 'images/homepage-background-poster.jpg')}?v=2" aria-hidden="true" tabindex="-1"><source src="${asset(route, 'images/homepage-background.mp4')}?v=2" type="video/mp4"></video>` : ''}
 ${header(route)}
@@ -132,8 +132,7 @@ function homeContent() {
 <section class="section-wrap sectors-section" id="expertise"><div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>Ervaring in vijf sectoren</p><h2>Van platform tot <span>windpark.</span></h2></div>${link('', 'expertise', 'Bekijk onze expertise')}</div>${categoryCards('')}</section>
 <section class="section-wrap approach-section"><div class="approach-card reveal"><p class="eyebrow"><span class="eyebrow-line"></span>Onze kern</p><h2>Offshore<br><span>platformbouw.</span></h2><p>Onafhankelijke bouw van offshoreplatformen voor de olie- en gassector.</p>${link('', 'diensten/platformbouw', 'Ontdek onze expertise')}</div><div class="approach-image"><img src="images/tj-enterprise-offshore.png" alt="Offshore kraanschip Sleipnir bij zonsondergang" loading="lazy"></div></section>
 <section class="section-wrap intro-panel reveal" id="werken-bij"><p class="eyebrow"><span class="eyebrow-line"></span>Werken bij TJ</p><div class="intro-grid"><h2>Meebouwen aan <span>projecten op zee.</span></h2><div class="intro-text"><p>Er staan op dit moment geen concrete vacatures online. Heb je ervaring in offshore platformbouw, of wil je als partner samenwerken? Stuur een korte introductie en we nemen contact op.</p>${link('', 'werken-bij', 'Werken bij TJ Enterprise')}</div></div></section>`;
-  const platform3d = `<section class="platform3d section-wrap" id="platform"><p class="eyebrow reveal"><span class="eyebrow-line"></span>Interactief model</p><div class="platform3d-head reveal"><h2>Zelf verkennen.<br><span>Draai het schip.</span></h2><p>Een interactieve weergave van een offshore kraanschip op zee bij zonsondergang. Sleep om te draaien, scroll om in te zoomen.</p></div><div class="platform3d-stage reveal" id="platform-stage"><canvas id="platform-canvas" role="img" aria-label="3D-weergave van een semi-submersible offshore kraanschip op zee bij zonsondergang, te besturen met de muis of vinger"></canvas><p class="platform3d-hint" aria-hidden="true">Sleep om te draaien</p><p class="platform3d-loading" id="platform-loading">Model wordt geladen…</p></div></section>`;
-  return `${hero({ route: '', title: 'Gebouwd voor de open zee.', titleHtml: 'Gebouwd voor<br><span>de open zee.</span>', eyebrow: 'Onafhankelijke offshorebouwer', intro: 'Offshoreplatformen gebouwd voor de wereldwijde olie- en gassector.', home: true })}${platform3d}${intro}`;
+  return `${hero({ route: '', title: 'Gebouwd voor de open zee.', titleHtml: 'Gebouwd voor<br><span>de open zee.</span>', eyebrow: 'Onafhankelijke offshorebouwer', intro: 'Offshoreplatformen gebouwd voor de wereldwijde olie- en gassector.', home: true })}${intro}`;
 }
 
 function projectsContent(page) {
@@ -182,7 +181,7 @@ for (const page of pages) {
   await writePage(page.route, html);
 }
 
-await writePage('', shell({ route: '', title: 'Offshoreplatformen voor de open zee', description: 'TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt voor de olie- en gassector.', content: homeContent(), interactive3d: true, homepage: true }));
+await writePage('', shell({ route: '', title: 'Offshoreplatformen voor de open zee', description: 'TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt voor de olie- en gassector.', content: homeContent(), homepage: true }));
 
 for (const page of pages.filter((item) => item.route === 'projecten' || item.route.startsWith('projecten/'))) {
   if (page.route === 'projecten' || page.category) {
