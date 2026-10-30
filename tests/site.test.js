@@ -17,6 +17,12 @@ test('homepage includes the requested offshore hero and core sections', () => {
   assert.match(html, /mailto:info@tjenterprise\.nl/);
 });
 
+test('homepage uses the supplied logo in both brand placements', () => {
+  assert.equal((html.match(/images\/tj-enterprise-logo\.png/g) || []).length, 2);
+  assert.equal((html.match(/class="brand-logo"/g) || []).length, 2);
+  assert.match(css, /\.brand-logo\{display:block;width:auto;height:46px\}/);
+});
+
 test('responsive and reduced-motion styles are present', () => {
   assert.match(css, /@media\s*\(max-width:\s*760px\)/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
