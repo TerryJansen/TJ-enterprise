@@ -11,7 +11,7 @@ const [html, css, js, logo] = await Promise.all([
 
 test('homepage includes the requested offshore hero and core sections', () => {
   assert.match(html, /TJ Enterprise/i);
-  assert.match(html, /Gebouwd voor<br><span>de open zee\./);
+  assert.match(html, /Kwaliteit voor<br><span>de open zee\./);
   assert.match(html, /images\/tj-enterprise-offshore\.png/);
   assert.match(html, /id="expertise"/);
   assert.match(html, /id="aanpak"/);

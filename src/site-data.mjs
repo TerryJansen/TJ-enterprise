@@ -80,265 +80,279 @@ export const projects = [
 ];
 
 const basePages = [
-  { route: 'diensten', title: 'Diensten', eyebrow: 'Wat we doen', intro: 'TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt. Onze projectervaring strekt zich uit over offshore olie & gas, windenergie, maritieme constructies en industriële projecten.', body: 'Ontdek onze kernactiviteit en de sectoren waarin onze projectervaring ligt.', related: ['diensten/platformbouw', 'diensten/offshore-wind', 'diensten/industrie'] },
-  { route: 'diensten/platformbouw', title: 'Offshore platformbouw', eyebrow: 'Kernactiviteit', intro: 'Onafhankelijke bouw van offshoreplatformen voor projecten in de olie- en gassector.', body: 'Van platformconcept tot een constructie die klaar is voor de offshore omgeving: TJ Enterprise richt zich op het bouwen van offshoreplatformen. De projectpagina’s geven een beeld van de uiteenlopende installaties en omgevingen waarin die ervaring is opgedaan.', category: 'olie-gas' },
-  { route: 'diensten/offshore-wind', title: 'Offshore wind', eyebrow: 'Projectervaring', intro: 'Offshore windparken vragen om grootschalige constructies, fundaties en infrastructuur op zee.', body: 'Het portfolio bevat projecten aan de Noordzee en daarbuiten, van windparkfundaties tot offshore hoogspanningsstations. Bekijk de bijbehorende cases voor projectcontext en technische gegevens.', category: 'energie' },
-  { route: 'diensten/industrie', title: 'Maritieme & industriële projecten', eyebrow: 'Projectervaring', intro: 'Naast offshoreplatformen omvat de projectervaring ook scheepsconversies, petrochemische installaties en maritieme constructies.', body: 'Deze projecten laten verschillende technische omgevingen zien. De gepubliceerde case-informatie beschrijft de installatie en projectcontext; voor specifieke rollen of werkzaamheden kun je contact opnemen.', related: ['projecten/maritiem', 'projecten/petrochemie', 'projecten/defensie'] },
-  { route: 'expertise', title: 'Expertise & projectervaring', eyebrow: 'Sectoren', intro: 'Een projectportfolio met ervaring in olie & gas, maritieme constructies, offshore wind, defensie en petrochemie.', body: 'TJ Enterprise bouwt offshoreplatformen voor de olie- en gassector. Daaromheen reikt de projectervaring verder: offshore wind, maritieme constructies, petrochemie en defensiegerelateerde projecten. Hieronder staan de diensten en de sectoren waarin die ervaring is opgebouwd.', related: ['diensten/platformbouw', 'diensten/offshore-wind', 'diensten/industrie'] },
+  { route: 'diensten', title: 'Diensten', eyebrow: 'Wat we doen', intro: 'Onafhankelijke quality engineering, assurance en control: van ontwerp en inkoop tot fabricage, bouw en het opleverdossier.', body: 'We ondersteunen opdrachtgevers in elke fase van een project waarin kwaliteit het verschil maakt. Onze diensten zijn ingedeeld in drie groepen; de technische disciplines waarop ze rusten, vind je onder Expertise.', related: ['diensten/quality-engineering', 'diensten/inspectie-expediting', 'diensten/certificering'] },
+  { route: 'diensten/quality-engineering', title: 'Quality engineering & assurance', eyebrow: 'Dienst', intro: 'Kwaliteitsborging die al in de ontwerpfase begint: reviews, audits en een sluitend kwaliteitsdossier.', body: 'Kwaliteit laat zich niet achteraf inspecteren. Door vroeg in het project mee te kijken naar ontwerp, specificaties en leveranciers, voorkomen we afwijkingen die later duur zijn om te herstellen. Tegelijk zorgen we dat de projectdocumentatie vanaf de eerste dag op orde is.' },
+  { route: 'diensten/inspectie-expediting', title: 'Inspectie & expediting', eyebrow: 'Dienst', intro: 'Toezicht bij leveranciers en op de werf, zodat materialen en onderdelen op tijd en volgens specificatie binnenkomen.', body: 'Een groot deel van de kwaliteit van een installatie wordt bepaald bij leveranciers en fabrikanten, vaak ver van de bouwlocatie. Wij zijn daar aanwezig: we inspecteren, bewaken de voortgang en stemmen af met fabrikanten en onderaannemers, nationaal en internationaal.' },
+  { route: 'diensten/certificering', title: 'Certificering & autoriteiten', eyebrow: 'Dienst', intro: 'Afstemming met Notified Bodies, klassebureaus en defensie-autoriteiten voor conformiteit en acceptatie.', body: 'Voor drukapparatuur, maritieme installaties en defensieprojecten is goedkeuring door een externe partij een harde voorwaarde voor oplevering. We kennen de eisen en de werkwijze van deze partijen en begeleiden het traject van beoordeling tot certificaat.' },
+  { route: 'expertise', title: 'Expertise', eyebrow: 'Zeven disciplines', intro: 'Specialistische kennis van materialen, lassen, NDT, coating, E&I, drukapparatuur en leveranciersbewaking.', body: 'Onze kwaliteitsdiensten rusten op zeven technische disciplines. Samen dekken ze de volledige keten, van de keuze en traceerbaarheid van materialen tot de eindacceptatie van een installatie.', related: ['diensten/quality-engineering', 'diensten/inspectie-expediting', 'diensten/certificering'] },
   { route: 'projecten', title: 'Projecten', eyebrow: 'Geselecteerde ervaring', intro: 'Veertien projecten in vijf sectoren — van offshoreplatformen en FPSO’s tot windparken en industriële installaties.', body: 'Selecteer een sector of bekijk alle projecten. De detailpagina’s geven de projectcontext en belangrijkste technische gegevens weer.', related: ['projecten/olie-gas', 'projecten/maritiem', 'projecten/energie', 'projecten/defensie', 'projecten/petrochemie'] },
   { route: 'projecten/olie-gas', title: 'Olie & gas', eyebrow: 'Projecten', intro: 'Offshoreplatformen, diepwaterontwikkelingen, pijpleidingen en FPSO-projecten.', body: 'Bekijk projectcontext en technische kerngegevens van olie- en gasprojecten in het portfolio.', category: 'olie-gas' },
   { route: 'projecten/maritiem', title: 'Maritiem', eyebrow: 'Projecten', intro: 'Scheepsconversies en zwaar materieel voor werk op zee.', body: 'Bekijk projecten rond offshore schepen en maritieme constructies.', category: 'maritiem' },
   { route: 'projecten/energie', title: 'Offshore wind & energie', eyebrow: 'Projecten', intro: 'Offshore windparken, fundaties, kabels en energie-infrastructuur.', body: 'Bekijk de windprojecten en hun gepubliceerde projectgegevens.', category: 'energie' },
   { route: 'projecten/defensie', title: 'Defensie', eyebrow: 'Projecten', intro: 'Een maritiem hijskraanproject met beperkte openbare locatiegegevens.', body: 'Projectinformatie wordt beperkt tot openbaar vermelde gegevens; niet-openbare fabricagedetails worden niet getoond.', category: 'defensie' },
   { route: 'projecten/petrochemie', title: 'Petrochemie', eyebrow: 'Projecten', intro: 'Een nieuwbouwproject voor een chemische installatie in Rotterdam-Botlek.', body: 'Bekijk de projectcontext en technische kerngegevens van MXDA XA1.', category: 'petrochemie' },
-  { route: 'over-ons', title: 'Over TJ Enterprise', eyebrow: 'Onafhankelijk offshorebedrijf', intro: 'TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt voor de olie- en gassector.', body: 'Onze focus is helder: offshoreplatformen bouwen en projectervaring uit de offshore- en energiesector inzichtelijk maken. We werken vanuit een praktische, technische blik en houden de communicatie direct.', related: ['over-ons/missie', 'over-ons/visie', 'over-ons/waarden'] },
-  { route: 'over-ons/missie', title: 'Onze missie', eyebrow: 'Waar we voor staan', intro: 'Bijdragen aan offshoreprojecten door platformen te bouwen die ontworpen zijn voor de realiteit van werken op zee.', body: 'TJ Enterprise richt zich op onafhankelijke offshoreplatformbouw. De missie is om techniek en uitvoering samen te brengen in constructies die hun functie op zee kunnen vervullen.' },
-  { route: 'over-ons/visie', title: 'Onze visie', eyebrow: 'Vooruitkijken', intro: 'Offshoreprojecten vragen om sterke techniek, heldere samenwerking en oplossingen die bestand zijn tegen de omstandigheden op zee.', body: 'TJ Enterprise wil een herkenbare, onafhankelijke bouwer zijn binnen de offshoresector en bijdragen aan de volgende generatie offshore-infrastructuur.' },
-  { route: 'over-ons/waarden', title: 'Onze waarden', eyebrow: 'Hoe we werken', intro: 'Veiligheid, vakmanschap en samenwerking vormen de basis van onze manier van werken.', body: 'Die waarden zijn richtinggevend voor elke opdracht: zorgvuldig omgaan met de offshore omgeving, kwaliteit serieus nemen en open communiceren met projectpartners.' },
-  { route: 'werken-bij', title: 'Werken bij TJ Enterprise', eyebrow: 'Samen bouwen', intro: 'Interesse in offshore platformbouw of samenwerken met TJ Enterprise?', body: 'Op dit moment publiceren we geen concrete vacatures. Stuur een korte introductie per e-mail om te informeren naar toekomstige mogelijkheden.', related: ['contact'] },
-  { route: 'contact', title: 'Contact', eyebrow: 'Neem contact op', intro: 'Bespreek een offshoreproject, stel een vraag of neem contact op over samenwerking.', body: 'Stuur een e-mail naar info@tjenterprise.nl. De knop opent een e-mailconcept in je eigen mailprogramma; er wordt geen formulier verstuurd.' },
+  { route: 'over-ons', title: 'Over TJ Enterprise', eyebrow: 'Onafhankelijke quality engineering', intro: 'Een onafhankelijk, multidisciplinair bedrijf voor quality engineering, assurance en control, gevestigd nabij de haven van Rotterdam.', body: 'We werken voor opdrachtgevers in olie & gas, maritiem, energie, petrochemie en defensie, en ondersteunen hen van het eerste ontwerp tot de oplevering.', related: ['over-ons/missie', 'over-ons/visie', 'over-ons/waarden'] },
+  { route: 'over-ons/missie', title: 'Onze missie', eyebrow: 'Waar we voor staan', intro: 'Onafhankelijke, multidisciplinaire kwaliteitsdiensten die zorgen voor betrouwbaarheid en compliance, van ontwerp tot oplevering.', body: 'Onze missie beschrijft wat ons drijft, hoe we onze opdrachtgevers bedienen en welk effect we op ieder project willen hebben.' },
+  { route: 'over-ons/visie', title: 'Onze visie', eyebrow: 'Vooruitkijken', intro: 'Uitgroeien tot een toonaangevende, onafhankelijke partner in quality engineering voor maritiem, defensie, energie, olie & gas en petrochemie.', body: 'Onze visie geeft richting aan het bedrijf: we willen het voorbeeld geven in quality engineering, assurance en control, en blijvende waarde toevoegen voor opdrachtgevers, partners en de sectoren waarin we werken.' },
+  { route: 'over-ons/waarden', title: 'Onze waarden', eyebrow: 'Hoe we werken', intro: 'Tien waarden die bepalen hoe we beslissen, samenwerken en leveren.', body: 'Onze waarden zijn geen tekst aan de muur. Ze bepalen welke keuzes we maken, hoe we met opdrachtgevers en partners omgaan en hoe we onze afspraken nakomen, elke dag opnieuw.' },
+  { route: 'werken-bij', title: 'Werken bij TJ Enterprise', eyebrow: 'Samen bouwen', intro: 'Ervaren quality engineers, inspecteurs, auditors en specialisten: bouw mee aan een groeiend team.', body: 'Ons bedrijf draait om mensen. We bouwen aan een netwerk van professionals in quality engineering, assurance en control, actief in olie & gas, petrochemie, energie, maritiem en defensie.', related: ['contact'] },
+  { route: 'contact', title: 'Contact', eyebrow: 'Neem contact op', intro: 'Op zoek naar een kwaliteitsspecialist voor je project? We denken graag mee.', body: 'Stuur een e-mail naar info@tjenterprise.nl. Vertel kort om welk project het gaat, in welke fase het zit en welke discipline je zoekt; dan koppelen we je aan de juiste specialist.' },
 ];
 
 export const pageSections = {
   'over-ons': [
     {
-      title: 'Wat we doen',
+      title: 'Wie we zijn',
       body: [
-        'TJ Enterprise bouwt offshoreplatformen voor de olie- en gassector. Dat werk begint zelden bij een leeg vel: een platform komt voort uit een veldontwikkeling met eigen eisen aan capaciteit, waterdiepte, veiligheid en onderhoud. Onze rol zit in het vertalen van die eisen naar een constructie die gebouwd, getransporteerd en geïnstalleerd kan worden.',
-        'Daarnaast reikt de projectervaring verder dan platformen alleen. Offshore windparken, scheepsconversies, petrochemische installaties en maritieme constructies stellen vergelijkbare eisen aan constructie, logistiek en uitvoering op locatie.',
+        'TJ Enterprise is een onafhankelijk, multidisciplinair bedrijf voor quality engineering, quality assurance en quality control. We zijn gevestigd nabij de haven van Rotterdam en werken voor opdrachtgevers in vijf sectoren: olie & gas, maritiem, energie, petrochemie en defensie.',
+        'Onze rol loopt door het hele project heen. We sluiten aan bij het ontwerp, begeleiden inkoop en fabricage en blijven betrokken tot het opleverdossier compleet is.',
+      ],
+    },
+    {
+      title: 'Waarom we bestaan',
+      body: [
+        'Het bedrijf is opgericht als antwoord op een probleem dat in projecten steeds terugkomt: kwaliteitsborging en -controle die tekortschieten. Er gaapt vaak een gat tussen algemene engineeringondersteuning en de specialistische kennis die nodig is om kwaliteit echt te borgen. Dat gat willen wij dichten.',
+        'Ons managementteam heeft gemiddeld meer dan 25 jaar internationale ervaring in het veld, opgedaan in complexe, multidisciplinaire projecten op land en op zee.',
+      ],
+    },
+    {
+      title: 'Wat we doen',
+      body: ['Onze technische kwaliteitsdiensten zijn gericht op compliance, betrouwbaarheid en prestaties:'],
+      list: [
+        'Quality engineering, assurance en control, inclusief leveranciersaudits',
+        'Constructability reviews en technische beoordelingen',
+        'Inspectie en expediting',
+        'Kwaliteitsondersteuning bij inkoop',
+        'Specialistische kennis van materialen, lastechniek, NDT, coating en E&I',
+        'Coördinatie met autoriteiten en technisch toezicht',
       ],
     },
     {
       title: 'Hoe we werken',
       body: [
-        'Onze aanpak is technisch en praktisch. Beslissingen worden genomen op basis van wat op de werf en op zee werkt, niet alleen op wat op tekening klopt. Dat betekent vroeg meedenken over maakbaarheid, transport en installatie, omdat juist daar de kosten en de risico’s van een offshoreproject liggen.',
-        'We houden de communicatie direct. Korte lijnen met opdrachtgever, werf en onderaannemers voorkomen dat problemen pas zichtbaar worden als ze duur zijn geworden.',
+        'We combineren praktische kennis uit het veld met inzicht in regelgeving. Het doel is steeds een kwaliteitsresultaat dat meetbaar is, niet alleen een afgevinkte lijst.',
+        'Daarbij houden we drie principes aan: nauwkeurigheid, transparantie en samenwerking.',
       ],
     },
     {
-      title: 'Wat onafhankelijk betekent',
-      body: [
-        'TJ Enterprise is niet verbonden aan één werf, leverancier of systeem. Die onafhankelijkheid maakt het mogelijk om per project te kiezen wat technisch en economisch het beste uitpakt, in plaats van te werken naar een vooraf vaststaande oplossing.',
+      title: 'Ons netwerk',
+      body: ['We onderhouden nauwe relaties met de partijen die samen een project maken:'],
+      list: [
+        'Olie- en energiemaatschappijen',
+        'Certificerende instanties',
+        'Maritieme en pijpleidingaannemers',
+        'Fabrikanten en staalbouwers',
+        'Walserijen',
+        'Bouwwerven',
+        'Leveranciers',
       ],
+    },
+    {
+      title: 'Internationale partners',
+      body: ['Naast ons team in Nederland werken we samen met partners in Spanje en de Verenigde Arabische Emiraten.'],
     },
   ],
   'over-ons/missie': [
     {
-      title: 'Bouwen voor de werkelijke omstandigheden',
-      body: [
-        'Een offshoreplatform staat decennialang op een plek waar het weer niet meewerkt en onderhoud duur is. Onze missie is om constructies te bouwen die daarop zijn ingericht: bestand tegen belasting en corrosie, toegankelijk voor inspectie en onderhoud, en veilig voor de mensen die er werken.',
-      ],
+      title: 'Uitmuntende kwaliteit',
+      body: ['We willen de technische standaard zetten. Ieder project moet voldoen aan de lokale en internationale normen en codes uit de betrokken vakgebieden, en aan de geldende wet- en regelgeving.'],
     },
     {
-      title: 'Techniek en uitvoering dicht bij elkaar',
-      body: [
-        'Veel problemen in offshoreprojecten ontstaan op de overgang tussen ontwerp en uitvoering. Wij willen die afstand klein houden door uitvoeringskennis vroeg in het proces in te brengen en door tijdens de bouw betrokken te blijven bij de keuzes die op de werf worden gemaakt.',
-      ],
+      title: 'Integriteit en verantwoordelijkheid',
+      body: ['We handelen eerlijk en verantwoordelijk. We beschermen de belangen van onze opdrachtgevers en doen wat we toezeggen.'],
     },
     {
-      title: 'Waar we op sturen',
-      body: [
-        'Een project is wat ons betreft geslaagd als de constructie doet wat ze moet doen, binnen de afgesproken planning en zonder dat er op veiligheid is ingeleverd. Die drie punten wegen zwaarder dan de snelste of goedkoopste route naar een tussentijdse mijlpaal.',
-      ],
+      title: 'Samenwerking en vertrouwen',
+      body: ['We werken zij aan zij met opdrachtgevers, partners en autoriteiten. Open communicatie staat daarbij voorop; vertrouwen bouwen we op door consequent en transparant te zijn.'],
+    },
+    {
+      title: 'Continu verbeteren',
+      body: ['We blijven leren, vernieuwen en onze methoden aanscherpen, zodat we blijvende waarde en meetbare verbeteringen leveren.'],
+    },
+    {
+      title: 'Kwaliteit zonder concessies',
+      body: ['Kwaliteit is voor ons geen controle aan het eind van de rit. Ze zit ingebakken in onze processen, in wat we opleveren en in de samenwerkingen die we aangaan.'],
     },
   ],
   'over-ons/visie': [
     {
-      title: 'De sector verandert, de eisen worden zwaarder',
+      title: 'Een toonaangevende, onafhankelijke partner',
+      body: ['We willen erkend worden als een van de toonaangevende onafhankelijke partners in quality engineering voor maritiem, defensie, energie, olie & gas en petrochemie. Die reputatie bouwen we op technische vakkennis, betrouwbaarheid en professionele integriteit.'],
+    },
+    {
+      title: 'De standaard zetten',
       body: [
-        'Offshore is al lang niet meer alleen olie en gas. Windparken, elektrificatie en hergebruik van bestaande infrastructuur veranderen wat er op zee gebouwd wordt. Tegelijk worden de eisen aan veiligheid, documentatie en milieu strenger. Wie offshore bouwt, moet met beide bewegingen mee kunnen.',
+        'Op lange termijn willen we de maatstaf zijn voor quality assurance en control. Daarvoor blijven we investeren in onze expertise, in digitale hulpmiddelen en in ons netwerk van specialisten.',
+        'Het doel: ieder project voldoet aan de hoogste lokale, internationale en defensiespecifieke normen, zoals ISO 9001 en NATO AQAP.',
       ],
     },
     {
-      title: 'Techniek blijft de basis',
-      body: [
-        'Nieuwe toepassingen veranderen de vraagstelling, maar niet de onderliggende techniek. Constructieberekening, materiaalkeuze, lastechniek en installatielogistiek bepalen nog steeds of iets op zee overeind blijft. Wij zien die vakkennis als de kern van het bedrijf en niet als iets dat je per project inhuurt.',
-      ],
-    },
-    {
-      title: 'Samenwerken in de keten',
-      body: [
-        'Offshoreprojecten zijn te groot en te gespecialiseerd om alleen te doen. Werven, ontwerpbureaus, installatiebedrijven en leveranciers leveren allemaal een deel. Onze visie is dat de kwaliteit van een project vooral wordt bepaald door hoe goed die partijen op elkaar aansluiten, en dat daar bewust op gestuurd moet worden.',
-      ],
-    },
-  ],
-  'over-ons/waarden': [
-    {
-      title: 'Veiligheid',
-      body: [
-        'Offshore werken brengt risico’s met zich mee die niet weg te organiseren zijn, alleen beheersbaar te maken. Veiligheid is daarom geen apart hoofdstuk in een projectplan maar een ontwerpuitgangspunt: hoe komt iemand bij een component, hoe wordt die vervangen, en wat gebeurt er als het misgaat.',
-      ],
-    },
-    {
-      title: 'Vakmanschap',
-      body: [
-        'De kwaliteit van een constructie wordt bepaald door de mensen die eraan werken. Wij hechten aan goed uitgevoerd werk, ook op de plekken die later niet meer zichtbaar zijn. Een las die niet gecontroleerd kan worden of een coating die te snel is aangebracht, komt jaren later terug als probleem.',
-      ],
-    },
-    {
-      title: 'Samenwerking',
-      body: [
-        'We werken bijna altijd binnen een grotere projectorganisatie. Dat vraagt om open communicatie: problemen vroeg melden, afspraken vastleggen en duidelijk zijn over wat wel en niet binnen de scope valt. Liever een lastig gesprek vooraf dan een verrassing bij oplevering.',
-      ],
+      title: 'Eén aanspreekpunt',
+      body: ['We bouwen aan een duurzame organisatie die hooggekwalificeerde professionals samenbrengt onder één identiteit. Zo hebben opdrachtgevers één aanspreekpunt voor multidisciplinaire kwaliteitsexpertise gedurende de hele levenscyclus van een project, van ontwerp tot eindacceptatie.'],
     },
   ],
   diensten: [
     {
-      title: 'Van vraagstuk tot oplevering',
-      body: [
-        'Een offshoreproject doorloopt een aantal fasen die elk hun eigen risico’s kennen. Hoe eerder uitvoeringskennis wordt ingebracht, hoe minder er later hersteld moet worden.',
-      ],
+      title: 'Kwaliteit in elke projectfase',
+      body: ['We leveren geïntegreerde kwaliteitsoplossingen die met het project meebewegen:'],
       list: [
-        'Uitgangspunten: functie, locatie, waterdiepte en de condities waarop ontworpen wordt',
-        'Maakbaarheid: kan het gebouwd, getransporteerd en geïnstalleerd worden, en met welk materieel',
-        'Fabricage: constructie op de werf, lastechniek, conservering en controle',
-        'Transport en installatie: zeevast maken, hijsen en plaatsen op locatie',
-        'Oplevering: documentatie, certificering en overdracht aan de beheerorganisatie',
+        'Ontwerp en engineering: constructability- en kwaliteitsreviews',
+        'Inkoop: leveranciersbeoordeling, inspectieplanning en het opstellen van ITP’s',
+        'Fabricage: inspectie van materialen, lassen, NDT en coating',
+        'Bouw en installatie: technisch toezicht en E&I-inspectie',
+        'Oplevering: kwaliteitsdossier, certificering en acceptatie',
       ],
     },
     {
-      title: 'Werken binnen bestaande projectorganisaties',
-      body: [
-        'Offshoreprojecten kennen vaak al een opdrachtgever, een hoofdaannemer en een reeks onderaannemers. Wij sluiten aan op die structuur in plaats van er een eigen laag naast te zetten, en stemmen scope en verantwoordelijkheden vooraf expliciet af.',
+      title: 'Samen met opdrachtgever en autoriteiten',
+      body: ['We combineren technische diepgang met kwaliteitsmanagement op systeemniveau. We werken nauw samen met opdrachtgevers, klassebureaus en autoriteiten, en leveren binnen de afgesproken planning.'],
+    },
+  ],
+  'diensten/quality-engineering': [
+    {
+      title: 'Audits',
+      body: ['We voeren audits uit op systeem-, proces- en leveranciersniveau:'],
+      list: [
+        'ISO 9001',
+        'AQAP voor defensieprojecten',
+        'PED voor drukapparatuur',
+        'Coating- en lasaudits',
+        'Kwalificatie van leveranciers',
+      ],
+    },
+    {
+      title: 'Constructability- en kwaliteitsreviews',
+      body: ['Tijdens de ontwerp- en engineeringfase beoordelen we of een ontwerp maakbaar, inspecteerbaar en certificeerbaar is. Afwijkingen die hier worden gevonden, kosten een fractie van wat ze op de werf zouden kosten.'],
+    },
+    {
+      title: 'Kwaliteitsplanning en documentatie',
+      body: ['We zetten de kwaliteitsdocumentatie van een project op en houden die bij:'],
+      list: [
+        'Kwaliteitsplannen',
+        'Inspection and Test Plans (ITP’s)',
+        'Non-conformity reports (NCR’s)',
+        'Root cause analyses',
+        'Corrigerende en preventieve maatregelen',
       ],
     },
   ],
-  'diensten/platformbouw': [
+  'diensten/inspectie-expediting': [
     {
-      title: 'Wat platformbouw omvat',
-      body: [
-        'Een offshoreplatform bestaat uit meerdere delen die elk op een andere manier gebouwd en geïnstalleerd worden. De samenhang tussen die delen bepaalt in grote mate het verloop van het project.',
-      ],
-      list: [
-        'Onderbouw: jackets, monopiles of gravity-based structures die de belasting naar de zeebodem brengen',
-        'Topsides: het dek met proces-, energie- en veiligheidsinstallaties',
-        'Modules en skids die apart worden gebouwd en later worden ingehesen',
-        'Leidingwerk, risers en doorvoeren naar subsea-systemen',
-        'Voorzieningen voor toegang, onderhoud en eventueel accommodatie',
-      ],
+      title: 'Vendor surveillance en expediting',
+      body: ['We auditen en inspecteren leveranciers, bewaken de voortgang van hun productie en coördineren met fabrikanten en onderaannemers, waar ter wereld ze ook zitten.'],
     },
     {
-      title: 'De omstandigheden bepalen het ontwerp',
-      body: [
-        'Waterdiepte, golfbelasting, bodemgesteldheid en de verwachte levensduur sturen vrijwel elke constructieve keuze. Een platform in ondiep water met een korte ontwerplevensduur vraagt om iets anders dan een installatie die decennia in zwaar weer moet blijven staan.',
-        'Daar komt bij dat een platform niet alleen de operationele belasting moet dragen, maar ook de fasen van transport en installatie moet doorstaan. Die tijdelijke situaties zijn vaak maatgevend.',
-      ],
+      title: 'Kwaliteit in inkoop en keten',
+      body: ['Kwaliteit begint bij de keuze van de leverancier. We beoordelen leveranciers, plannen de inspecties en stellen de ITP’s op waarmee duidelijk wordt wat er wanneer gecontroleerd wordt.'],
     },
     {
-      title: 'Samenwerking op de werf',
-      body: [
-        'Platformbouw gebeurt op werven waar meerdere disciplines tegelijk werken. Planning, volgorde van werkzaamheden en beschikbaarheid van hijsmaterieel bepalen of een bouwfase soepel verloopt. We houden die uitvoeringsrealiteit vanaf het begin in beeld.',
-      ],
+      title: 'Inspectie tijdens fabricage en bouw',
+      body: ['Op de werf en bij fabrikanten inspecteren we materialen, laswerk, NDT, coating en elektrotechniek en instrumentatie. De technische achtergrond van deze disciplines staat beschreven onder Expertise.'],
     },
   ],
-  'diensten/offshore-wind': [
+  'diensten/certificering': [
     {
-      title: 'Wat offshore wind vraagt',
-      body: [
-        'Een windpark op zee is geen enkele grote constructie maar een reeks onderdelen die in serie worden gebouwd en geïnstalleerd. Dat verschuift de nadruk van maatwerk naar herhaalbaarheid en doorlooptijd.',
-      ],
-      list: [
-        'Fundaties: monopiles, jackets of andere draagconstructies voor de turbines',
-        'Overgangsstukken en de voorzieningen voor toegang en onderhoud',
-        'Offshore transformator- en hoogspanningsstations',
-        'Kabelinfrastructuur tussen turbines onderling en naar de kust',
-      ],
+      title: 'Drukapparatuur (PED/CE)',
+      body: ['Voor drukapparatuur onderhouden we het contact met Notified Bodies en autoriteiten. We ondersteunen de conformiteitsbeoordeling en begeleiden het traject tot en met de certificering.'],
     },
     {
-      title: 'Schaal en herhaling',
-      body: [
-        'Bij tientallen vrijwel identieke fundaties telt elke afwijking in het bouwproces door over de hele serie. Standaardisatie, vaste controlemomenten en een strakke logistiek tussen fabricagelocatie en installatieschip zijn daarom bepalend voor het resultaat.',
-        'Tegelijk blijft de zee onvoorspelbaar: installatievensters zijn kort en weersafhankelijk, wat betekent dat voorbereiding op de wal zwaarder weegt dan bij veel andere bouwprojecten.',
-      ],
-    },
-  ],
-  'diensten/industrie': [
-    {
-      title: 'Scheepsconversies',
-      body: [
-        'Bij een conversie wordt een bestaand schip aangepast voor een nieuwe taak: een pijplegsysteem, extra kranen, nieuwe machinekamers of uitgebreide accommodatie. Het werk is complex omdat de bestaande constructie, de stabiliteit en de bestaande systemen het kader vormen waarbinnen alles moet passen.',
-      ],
+      title: 'Defensie: GQA en AQAP',
+      body: ['In defensieprojecten ondersteunen we bij Government Quality Assurance en AQAP-compliance, in nauwe samenwerking met de Government Quality Assurance Representatives (GQAR’s).'],
     },
     {
-      title: 'Industriële en petrochemische installaties',
-      body: [
-        'Procesinstallaties op land delen veel met offshorebouw: zware equipment, uitgebreid leidingwerk, strenge eisen aan lassen en conservering, en een opleverdossier dat compleet moet zijn. Het verschil zit vooral in logistiek en in de regelgeving die van toepassing is.',
-      ],
-    },
-    {
-      title: 'Maritieme constructies',
-      body: [
-        'Kranen, steigers, laadvoorzieningen en andere constructies in de haven of op het water vragen om een combinatie van staalbouw en kennis van de maritieme omgeving. Belasting door golven, getij en zoutwatercorrosie speelt ook hier een hoofdrol.',
-      ],
+      title: 'Klassebureaus en technisch toezicht',
+      body: ['We stemmen af met klassebureaus en andere toezichthouders en houden technisch toezicht op de uitvoering, zodat acceptatie bij oplevering geen verrassingen oplevert.'],
     },
   ],
   expertise: [
     {
-      title: 'Hoe het portfolio is opgebouwd',
-      body: [
-        'De projecten op deze site zijn ingedeeld in vijf sectoren. Die indeling volgt het type installatie en de omgeving waarin gewerkt is, niet de omvang van het project. Een klein maar technisch complex project kan meer zeggen over de aard van het werk dan een groot project met een eenvoudige scope.',
+      title: 'Ondersteunende kwaliteitsdiensten',
+      body: ['Rond de zeven disciplines leveren we kwaliteitsmanagement en projectborging:'],
+      list: [
+        'Audits: ISO 9001, AQAP, PED, coating, lassen en leverancierskwalificatie',
+        'Constructability- en kwaliteitsreviews in de ontwerp- en engineeringfase',
+        'Kwaliteit in inkoop en keten: leveranciersbeoordeling, inspectieplanning en ITP’s',
+        'Kwaliteitsplanning en documentatie: kwaliteitsplannen, ITP’s, NCR’s, root cause analyses en corrigerende en preventieve maatregelen',
+        'Government Quality Assurance en AQAP-compliance voor defensieprojecten, samen met GQAR’s',
       ],
     },
     {
-      title: 'Wat je op een projectpagina vindt',
-      body: [
-        'Iedere case beschrijft de projectcontext en de belangrijkste technische kerngegevens, zoals vermogen, afmetingen, capaciteit of locatie. We beperken ons daarbij tot informatie die openbaar is; niet-openbare fabricage- of locatiegegevens worden niet getoond.',
-        'Voor vragen over de specifieke rol van TJ Enterprise binnen een project kun je contact opnemen.',
+      title: 'Vakgebieden',
+      body: ['Onze specialisten zijn actief in de volgende vakgebieden:'],
+      list: [
+        'Piping en processystemen',
+        'Constructies (structural)',
+        'Pijpleidingen',
+        'Niet-destructief onderzoek',
+        'Lastechniek en metallurgie',
+        'Elektrotechniek en instrumentatie',
+        'Wet- en regelgeving',
       ],
+    },
+    {
+      title: 'Onze aanpak',
+      body: ['We combineren technische diepgang met kwaliteitsmanagement op systeemniveau. Zo ondersteunen we compliance, betrouwbaarheid en prestaties, in nauwe samenwerking met opdrachtgevers, klassebureaus en autoriteiten, en binnen de afgesproken planning.'],
     },
   ],
   projecten: [
     {
       title: 'Over de projectinformatie',
-      body: [
-        'De projectpagina’s beschrijven de context en de technische kerngegevens van installaties waarmee ervaring is opgedaan. De gegevens zijn gebaseerd op openbare projectinformatie. Waar fabricagelocaties of contractuele details niet openbaar zijn gemaakt, worden ze hier ook niet vermeld.',
-      ],
+      body: ['De projectpagina’s beschrijven de context en de technische kerngegevens van installaties waarin onze specialisten actief zijn geweest. De gegevens zijn gebaseerd op openbare projectinformatie. Waar fabricagelocaties of contractuele details niet openbaar zijn gemaakt, worden ze hier ook niet vermeld.'],
     },
   ],
   'werken-bij': [
     {
-      title: 'Wie we zoeken',
-      body: [
-        'Er staan op dit moment geen concrete vacatures online. Dat betekent niet dat er geen gesprek mogelijk is: in de offshorebouw komt werk vaak projectgebonden en op korte termijn beschikbaar. Een introductie op voorhand helpt om snel te kunnen schakelen.',
-      ],
+      title: 'Jouw loopbaan, jouw manier',
+      body: ['Er zijn verschillende manieren om met ons samen te werken:'],
       list: [
-        'Constructie- en werkvoorbereiding voor staalbouw en offshore constructies',
-        'Lastechniek, inspectie en kwaliteitsborging',
-        'Projectbegeleiding en toezicht op de werf',
-        'Transport-, hijs- en installatie-engineering',
+        'Een vaste positie in ons kernteam',
+        'Opdrachten op contractbasis voor zelfstandige experts, in binnen- en buitenland',
+        'Parttime of fulltime, afgestemd op je expertise, beschikbaarheid en doelen',
       ],
     },
     {
-      title: 'Een open sollicitatie',
-      body: [
-        'Stuur een korte introductie per e-mail: wie je bent, waar je aan hebt gewerkt en wat voor werk je zoekt. Een uitgebreid cv is niet nodig voor een eerste contact. We reageren ook als er op dat moment niets passends is.',
+      title: 'Wie we zoeken',
+      body: ['We zoeken mensen met een aantoonbare technische achtergrond in:'],
+      list: [
+        'Lastechniek en materiaalkunde',
+        'NDT, coating en oppervlaktebescherming',
+        'Vendor surveillance en expediting',
+        'QA/QC-management en auditing',
+        'Ondersteuning bij PED/CE-certificering',
+        'Quality engineering voor defensie en maritiem',
       ],
     },
     {
-      title: 'Samenwerken als partner of zzp’er',
+      title: 'Past dit bij jou?',
+      body: ['Hecht je aan kwaliteit, neem je verantwoordelijkheid en werk je graag in teamverband? Dan pas je bij ons.'],
+    },
+    {
+      title: 'Zo solliciteer je',
       body: [
-        'Naast mensen in loondienst werken we samen met zelfstandigen en gespecialiseerde bedrijven. Ook daarvoor geldt: laat weten wat je doet en in welke fase van een project je meestal wordt ingeschakeld.',
+        'Vul het formulier hieronder in of mail je cv met een korte motivatie. Geef daarbij aan of je een vaste, parttime, fulltime of contractrol zoekt.',
+        'We bekijken iedere sollicitatie zorgvuldig en nemen contact op met geschikte kandidaten voor een kennismaking of een technisch gesprek.',
       ],
+    },
+    {
+      title: 'Groeien met ons',
+      body: ['We gaan voor langdurige relaties met onze mensen, partners en opdrachtgevers. We waarderen vakmanschap, luisteren naar ideeën en willen dat je werk het verschil maakt.'],
     },
   ],
   contact: [
     {
       title: 'Waarmee we kunnen helpen',
-      body: [
-        'Een eerste gesprek gaat meestal over de aard van het project en wat er al ligt. Hoe concreter de uitgangspunten, hoe sneller duidelijk is of we iets voor elkaar kunnen betekenen.',
-      ],
+      body: ['Een eerste gesprek gaat meestal over het project en de fase waarin het zit. Neem bijvoorbeeld contact op voor:'],
       list: [
-        'Een offshoreproject waarvoor je een bouwpartner zoekt',
-        'Een vraag over maakbaarheid, transport of installatie van een constructie',
-        'Samenwerking als werf, leverancier of onderaannemer',
-        'Een open sollicitatie of een voorstel als zelfstandige',
+        'Een kwaliteitsspecialist voor je project',
+        'Een audit of leveranciersbeoordeling',
+        'Inspectie of expediting bij een leverancier of op de werf',
+        'Begeleiding bij PED/CE-certificering of AQAP-compliance',
+        'Een sollicitatie of een voorstel als zelfstandige',
       ],
     },
     {
       title: 'Wat je kunt verwachten',
-      body: [
-        'Je mail komt rechtstreeks binnen, niet in een ticketsysteem. We reageren met een inhoudelijk antwoord of met een voorstel voor een gesprek, ook als een project niet binnen onze scope valt.',
-      ],
+      body: ['Je mail komt rechtstreeks binnen, niet in een ticketsysteem. We reageren met een inhoudelijk antwoord of een voorstel voor een gesprek, ook als je vraag buiten onze scope valt.'],
     },
   ],
   'projecten/olie-gas': [
@@ -381,13 +395,49 @@ export const pageSections = {
     {
       title: 'Wat deze projecten kenmerkt',
       body: [
-        'Petrochemische installaties combineren zware equipment met uitgebreid leidingwerk en strenge eisen aan lassen, conservering en keuring. Het opleverdossier is daarbij net zo bepalend als de constructie zelf.',
+        'Petrochemische installaties combineren zware equipment met uitgebreid leidingwerk en strenge eisen aan lassen, conservering en keuring. Het opleverdossier is daarbij net zo bepalend als de installatie zelf.',
         'Werkzaamheden lopen vaak over meerdere locaties en landen, waardoor afstemming tussen fabricage, transport en montage op de bouwplaats zwaar weegt.',
       ],
     },
   ],
 };
 
-export const pages = basePages.map((page) => (
-  pageSections[page.route] ? { ...page, sections: pageSections[page.route] } : page
-));
+export const pageCardGrids = {
+  expertise: {
+    eyebrow: 'Kerndisciplines',
+    title: 'Zeven disciplines,',
+    accent: 'één kwaliteitspartner.',
+    items: [
+      { title: 'Materiaalkunde', text: 'Controle van materiaalspecificaties en traceerbaarheid, en toetsing aan projecteisen en codes.' },
+      { title: 'Lastechniek & inspectie', text: 'Kwalificatie van lasmethoden, certificering van lassers, coördinatie van laswerk en inspectie en toezicht.' },
+      { title: 'Niet-destructief onderzoek (NDT)', text: 'Coördinatie, beoordeling en bewaking van NDT, getoetst aan normen en de specificaties van de opdrachtgever.' },
+      { title: 'Coating & corrosiebescherming', text: 'Beoordeling van coatingspecificaties en inspectie van oppervlaktevoorbehandeling, applicatie en uitharding.' },
+      { title: 'E&I-inspectie', text: 'Toezicht op en verificatie van elektrotechniek en instrumentatie, getoetst aan ontwerp- en veiligheidsnormen.' },
+      { title: 'Drukapparatuur (PED/CE) & autoriteiten', text: 'Afstemming met Notified Bodies en autoriteiten voor conformiteitsbeoordeling en certificering.' },
+      { title: 'Vendor surveillance & expediting', text: 'Audits en inspecties bij leveranciers, voortgangsbewaking en coördinatie met fabrikanten en onderaannemers wereldwijd.' },
+    ],
+  },
+  'over-ons/waarden': {
+    eyebrow: 'Onze waarden',
+    title: 'Tien waarden,',
+    accent: 'elke dag.',
+    items: [
+      { title: 'Integriteit', text: 'Eerlijk, rechtvaardig en open handelen, en de juiste keuze maken, ook als die moeilijker is.' },
+      { title: 'Klantgericht', text: 'De opdrachtgever centraal: goed luisteren naar wat nodig is en leveren met precisie en zorg.' },
+      { title: 'Samenwerking', text: 'Samen bereiken we meer, met gedeelde doelen en open samenwerking.' },
+      { title: 'Respect', text: 'Waardering voor mensen, hun ideeën en hun verschillen; iedereen professioneel en waardig behandelen.' },
+      { title: 'Verantwoordelijkheid', text: 'Verantwoordelijkheid nemen voor ons handelen en onze toezeggingen consequent nakomen.' },
+      { title: 'Vertrouwen', text: 'Vertrouwen opbouwen door steeds stabiel, betrouwbaar en principieel te handelen.' },
+      { title: 'Teamwork', text: 'Als één team werken aan een gezamenlijk doel en aan resultaat.' },
+      { title: 'Communicatie', text: 'Heldere, open en tijdige communicatie, zodat iedereen op één lijn zit.' },
+      { title: 'Continu leren', text: 'Investeren in groei, vernieuwing en vakkennis om kwaliteit blijvend te leveren.' },
+      { title: 'Betrouwbaarheid', text: 'Opdrachtgevers en partners moeten altijd op ons kunnen rekenen.' },
+    ],
+  },
+};
+
+export const pages = basePages.map((page) => ({
+  ...page,
+  ...(pageSections[page.route] ? { sections: pageSections[page.route] } : {}),
+  ...(pageCardGrids[page.route] ? { cards: pageCardGrids[page.route] } : {}),
+}));

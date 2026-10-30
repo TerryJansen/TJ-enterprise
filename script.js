@@ -55,12 +55,82 @@ if (homepageBackgroundVideo && backgroundVideoToggle) {
   updateVideoToggle();
 }
 
+const projectFilter = document.querySelector('[data-project-filter]');
+const projectGrid = document.querySelector('[data-project-grid]');
+
+if (projectFilter && projectGrid) {
+  const pills = [...projectFilter.querySelectorAll('[data-filter]')];
+  const cards = [...projectGrid.querySelectorAll('.project-card')];
+  projectFilter.setAttribute('role', 'group');
+  pills.forEach((pill) => {
+    pill.setAttribute('role', 'button');
+    pill.setAttribute('aria-pressed', String(pill.classList.contains('is-active')));
+  });
+  projectFilter.addEventListener('click', (event) => {
+    const pill = event.target.closest('[data-filter]');
+    if (!pill) return;
+    event.preventDefault();
+    const filter = pill.dataset.filter;
+    pills.forEach((item) => {
+      const active = item === pill;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    cards.forEach((card) => {
+      card.hidden = filter === 'all' ? card.dataset.featured !== 'true' : card.dataset.category !== filter;
+      if (!card.hidden) {
+        card.classList.add('is-visible');
+        card.querySelectorAll('.letter-run').forEach((run) => run.classList.add('is-visible'));
+      }
+    });
+  });
+}
+
+const sectorRotator = document.querySelector('[data-rotator]');
+
+if (sectorRotator && !prefersReducedMotion) {
+  const sectors = [...sectorRotator.querySelectorAll('.hero-sector')];
+  if (sectors.length > 1) {
+    let current = 0;
+    sectorRotator.classList.add('is-rotating');
+    setInterval(() => {
+      sectors[current].classList.remove('is-active');
+      current = (current + 1) % sectors.length;
+      sectors[current].classList.add('is-active');
+    }, 2600);
+  }
+}
+
+const applyForm = document.querySelector('[data-apply-form]');
+
+if (applyForm) {
+  applyForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!applyForm.reportValidity()) return;
+    const data = new FormData(applyForm);
+    const lines = [
+      `Naam: ${data.get('naam')}`,
+      `E-mail: ${data.get('email')}`,
+      `Telefoon: ${data.get('telefoon') || '-'}`,
+      `Vakgebied: ${data.get('vakgebied')}`,
+      `Dienstverband: ${data.get('dienstverband')}`,
+      '',
+      'Motivatie:',
+      data.get('motivatie'),
+      '',
+      '(cv als bijlage toevoegen)',
+    ];
+    const subject = `Sollicitatie ${data.get('vakgebied')} - ${data.get('naam')}`;
+    window.location.href = `mailto:info@tjenterprise.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  });
+}
+
 function splitVisibleTextIntoLetters() {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
       if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
       const parent = node.parentElement;
-      if (!parent || parent.closest('script, style, noscript, [aria-hidden="true"], .brand, .menu-toggle')) {
+      if (!parent || parent.closest('script, style, noscript, form, [hidden], [aria-hidden="true"], .brand, .menu-toggle')) {
         return NodeFilter.FILTER_REJECT;
       }
       return NodeFilter.FILTER_ACCEPT;

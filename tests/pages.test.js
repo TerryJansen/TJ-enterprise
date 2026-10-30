@@ -53,15 +53,38 @@ test('every top-level section is reachable from the header and footer navigation
   }
 });
 
+test('concept site stays out of search engines and is labelled as a Qunited concept', async () => {
+  for (const route of routeList) {
+    const html = await readFile(localFile(route), 'utf8');
+    assert.match(html, /<meta name="robots" content="noindex,nofollow">/, `/${route} must be noindex`);
+    assert.match(html, /Conceptontwerp voor Qunited BV/, `/${route} must carry the concept note`);
+  }
+  const robots = await readFile(path.join(root, 'robots.txt'), 'utf8');
+  assert.match(robots, /Disallow: \//);
+});
+
+test('homepage project filter, sector rotator and application form are wired up', async () => {
+  const homepage = await readFile(localFile(''), 'utf8');
+  const careers = await readFile(localFile('werken-bij'), 'utf8');
+  const script = await readFile(path.join(root, 'script.js'), 'utf8');
+  assert.match(homepage, /data-project-filter/);
+  assert.equal((homepage.match(/data-filter="/g) || []).length, categories.length + 1);
+  assert.equal((homepage.match(/class="project-card reveal" data-category=/g) || []).length, projects.length);
+  assert.match(homepage, /data-rotator aria-hidden="true"/);
+  assert.match(careers, /data-apply-form/);
+  assert.match(careers, /type="email"[^>]*required/);
+  assert.match(script, /closest\('script, style, noscript, form, \[hidden\]/);
+});
+
 test('homepage omits the 3D vessel animation while keeping the video and hero', async () => {
   const homepage = await readFile(localFile(''), 'utf8');
   assert.doesNotMatch(homepage, /id="platform-stage"|id="platform-canvas"|platform-3d\.js|type="importmap"/);
   assert.match(homepage, /id="homepage-background-video"/);
-  assert.match(homepage, /Gebouwd voor/);
-  assert.match(homepage, /styles\.css\?v=4/);
-  assert.match(homepage, /site\.css\?v=6/);
-  assert.match(homepage, /script\.js\?v=5/);
-  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=6/);
+  assert.match(homepage, /Kwaliteit voor/);
+  assert.match(homepage, /styles\.css\?v=5/);
+  assert.match(homepage, /site\.css\?v=7/);
+  assert.match(homepage, /script\.js\?v=6/);
+  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=7/);
 });
 
 test('homepage includes a muted video background, a still poster, and a motion-aware toggle', async () => {

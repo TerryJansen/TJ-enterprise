@@ -1,4 +1,4 @@
-:root{--accent-soft:#f2b36d;--panel:rgba(11,17,19,.62);--panel-line:rgba(246,248,246,.19);--copy:#d2d9d6;--content-width:1440px}
+:root{--accent-soft:#f2b36d;--panel:rgba(11,17,19,.62);--panel-line:rgba(246,248,246,.19);--copy:#eef2f0;--content-width:1440px}
 html{scroll-padding-top:92px}
 body{background-color:var(--ink)}
 body.interior-page::before{background:linear-gradient(180deg,rgba(10,16,18,.32) 0%,rgba(10,16,18,.72) 100%),linear-gradient(90deg,rgba(10,16,18,.54) 0%,rgba(10,16,18,.18) 70%),var(--page-backdrop) var(--platform-position)/cover no-repeat}
@@ -26,7 +26,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent-soft);outlin
 .intro-panel{padding-top:86px;padding-bottom:80px}
 .intro-panel .intro-grid{grid-template-columns:1.05fr .75fr;gap:8vw}
 .intro-panel h2,.section-heading h2,.content-narrow h2,.approach-card h2{margin:0;font-size:clamp(40px,5.3vw,76px);line-height:1.02;letter-spacing:-.055em;font-weight:400}
-.intro-panel h2 span,.section-heading h2 span,.content-narrow h2 span,.approach-card h2 span,.case-copy h2 span{color:#b9c4c1;font-weight:300}
+.intro-panel h2 span,.section-heading h2 span,.content-narrow h2 span,.approach-card h2 span,.case-copy h2 span{color:#e9eeec;font-weight:300}
 .intro-text p,.content-lead,.case-copy>p:not(.eyebrow){color:var(--copy);font-size:16px;line-height:1.8}
 .eyebrow{font-size:10px;letter-spacing:.18em}
 .eyebrow-line{background:var(--accent)}
@@ -43,7 +43,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent-soft);outlin
 .project-card-image img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.25,1),filter .4s;filter:saturate(.82)}
 .project-card:hover .project-card-image img{transform:scale(1.045);filter:saturate(1)}
 .project-card-copy{position:relative;display:grid;grid-template-columns:1fr auto;gap:8px 16px;padding:18px 2px 0}
-.project-card-kicker{grid-column:1/-1;color:#bac4c1;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.project-card-kicker{grid-column:1/-1;color:#e9eeec;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
 .project-card-kicker span{color:var(--accent);padding:0 5px}
 .project-card-title{max-width:520px;font-size:clamp(19px,2.2vw,29px);line-height:1.15;letter-spacing:-.035em;font-weight:400}
 .project-card-arrow{align-self:center;color:var(--accent-soft);font-size:20px;transition:transform .2s}
@@ -54,7 +54,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent-soft);outlin
 .sector-card:hover{background:rgba(231,154,85,.1);transform:translateY(-3px)}
 .sector-index,.page-card-index{color:var(--accent);font-size:11px;letter-spacing:.1em}
 .sector-title{font-size:clamp(17px,1.7vw,23px);font-weight:400;letter-spacing:-.03em}
-.sector-description{color:#b7c1be;font-size:12px;line-height:1.6}
+.sector-description{color:#e9eeec;font-size:12px;line-height:1.6}
 .sector-count{margin-top:auto;color:#eef1ef;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .sector-count span{padding-left:6px;color:var(--accent)}
 .approach-section{display:grid;grid-template-columns:.8fr 1.2fr;align-items:stretch;gap:36px;padding-top:50px}
@@ -64,15 +64,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent-soft);outlin
 .approach-image{min-height:390px;overflow:hidden}
 .approach-image img{width:100%;height:100%;min-height:390px;object-fit:cover;object-position:center 53%;filter:saturate(.82)}
 .archive-section{padding-top:42px}
-.breadcrumbs{display:flex;gap:10px;align-items:center;margin:0 0 60px;color:#aeb9b7;font-size:11px}
+.breadcrumbs{display:flex;gap:10px;align-items:center;margin:0 0 60px;color:#e9eeec;font-size:11px}
 .breadcrumbs a:hover{color:var(--accent)}
 .breadcrumbs span[aria-current=page]{color:#e9edeb}
 .archive-heading{margin-bottom:34px}
 .archive-heading h2{font-size:clamp(38px,5vw,68px)}
-.archive-heading h2 span{color:#aeb9b7;font-size:.48em;vertical-align:middle}
+.archive-heading h2 span{color:#e9eeec;font-size:.48em;vertical-align:middle}
 .category-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
-.category-pill{display:inline-flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--panel-line);color:#d9dfdc;font-size:11px;transition:background .2s,border-color .2s,color .2s}
-.category-pill span{color:#aeb9b7;font-size:9px}
+.category-pill{display:inline-flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--panel-line);color:#e9eeec;font-size:11px;transition:background .2s,border-color .2s,color .2s}
+.category-pill span{color:#e9eeec;font-size:9px}
 .category-pill:hover,.category-pill.is-active{background:var(--white);border-color:var(--white);color:var(--ink)}
 .category-pill.is-active span{color:var(--ink)}
 .case-section{padding-top:38px}
@@ -99,15 +99,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent-soft);outlin
 .page-card:hover{transform:translateY(-3px);background:rgba(231,154,85,.1)}
 .page-card-title{display:block;margin:22px 34px 10px 0;font-size:22px;line-height:1.15;font-weight:400}
 .page-card-arrow{position:absolute;top:20px;right:20px;color:var(--accent);font-size:18px}
-.page-card p{margin:0;color:#b7c1be;font-size:12px;line-height:1.6}
+.page-card p{margin:0;color:#e9eeec;font-size:12px;line-height:1.6}
 .compact-heading{margin-bottom:30px}
 .contact-detail{max-width:750px;padding:28px;border:1px solid var(--panel-line);background:var(--panel)}
 .contact-label{display:block;margin-bottom:16px;color:var(--accent-soft);font-size:10px;letter-spacing:.17em;text-transform:uppercase}
 .contact-detail>a{display:inline-flex;gap:14px;align-items:center;font-size:clamp(21px,3vw,34px)}
 .contact-detail>a span{color:var(--accent)}
-.contact-detail>p{max-width:560px;margin:18px 0 0;color:#b7c1be;font-size:12px;line-height:1.65}
+.contact-detail>p{max-width:560px;margin:18px 0 0;color:#e9eeec;font-size:12px;line-height:1.65}
 .contact-band{border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);background:rgba(6,12,14,.28)}
-.contact-band h2 span{color:#b9c4c1;font-weight:300}
+.contact-band h2 span{color:#e9eeec;font-weight:300}
 .site-footer{background:rgba(6,10,12,.5);backdrop-filter:blur(8px)}
 .footer-brand .brand-logo{height:38px}
 .reveal{opacity:1;transform:none;will-change:auto}
@@ -176,7 +176,7 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
 }
 /* Footernavigatie */
 .footer-nav{display:flex;flex-wrap:wrap;align-items:center;gap:7px 22px;font-size:11px}
-.footer-nav a{color:#aeb9b7;transition:color .2s}
+.footer-nav a{color:#e9eeec;transition:color .2s}
 .footer-nav a:hover,.footer-nav a:focus-visible{color:var(--accent)}
 @media(max-width:760px){
   .footer-nav{grid-column:1/-1;justify-self:start;gap:7px 16px}
@@ -186,10 +186,10 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
 .content-prose{max-width:780px;margin:0 0 58px;border-top:1px solid var(--line)}
 .prose-block{padding:34px 0;border-bottom:1px solid var(--line)}
 .prose-block h3{margin:0 0 14px;font-size:clamp(21px,2.1vw,26px);font-weight:400;letter-spacing:-.03em;color:var(--white)}
-.prose-block p{margin:0 0 14px;color:#b8c2bf;font-size:15px;line-height:1.78}
+.prose-block p{margin:0 0 14px;color:#e9eeec;font-size:15px;line-height:1.78}
 .prose-block p:last-child,.prose-block ul:last-child{margin-bottom:0}
 .prose-list{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:11px}
-.prose-list li{position:relative;padding-left:20px;color:#b8c2bf;font-size:14px;line-height:1.65}
+.prose-list li{position:relative;padding-left:20px;color:#e9eeec;font-size:14px;line-height:1.65}
 .prose-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--accent)}
 .contact-plain{margin:0 0 10px;color:var(--white);font-size:19px;letter-spacing:-.02em}
 .contact-detail + .contact-detail{margin-top:18px}
@@ -197,4 +197,103 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .content-prose{margin-bottom:42px}
   .prose-block{padding:26px 0}
   .prose-block p{font-size:14px}
+}
+
+/* ===== Typografie: Archivo voor koppen, IBM Plex Sans voor tekst ===== */
+h1,h2,h3,.sector-title,.project-card-title,.page-card-title,.case-client,.contact-plain,.value-card h3,.apply-form h3{font-family:var(--font-display)}
+.hero h1{font-weight:600!important;letter-spacing:-.035em!important;line-height:.95!important}
+h2{font-weight:600!important;letter-spacing:-.03em!important}
+h2 span{color:#dbe3e0!important;font-weight:400!important}
+h3,.sector-title,.project-card-title,.page-card-title{font-weight:600!important;letter-spacing:-.015em!important}
+body,p,li{font-weight:400}
+.hero-copy{color:#ffffff;font-size:17px;font-weight:500;text-shadow:0 1px 18px rgba(0,0,0,.45)}
+.hero h1{text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.eyebrow{font-size:11px!important;font-weight:600;letter-spacing:.14em!important}
+.content-lead{color:#ffffff;font-size:18px;line-height:1.7}
+.intro-text p,.prose-block p,.case-copy p{color:#eef2f0!important;font-size:16px!important;line-height:1.75}
+.prose-list li{color:#eef2f0;font-size:15px}
+.page-card p,.sector-description{color:#e9eeec!important;font-size:13.5px!important;line-height:1.6}
+.project-card-kicker{font-size:11px;font-weight:500}
+.category-pill{font-size:12px;font-weight:500}
+.hero-foot{font-size:10px!important;font-weight:500;color:rgba(255,255,255,.9)!important}
+.site-nav{font-size:14px;font-weight:500}
+.site-nav>a:not(.nav-cta){color:#ffffff}
+.site-footer{font-size:13px;color:#e9eeec}
+.copyright{font-size:11.5px}
+.text-link{font-weight:600}
+.button{font-weight:600}
+@media(max-width:760px){
+  .hero-copy{font-size:15px}
+  .content-lead{font-size:16px}
+  .intro-text p,.prose-block p,.case-copy p{font-size:15px!important}
+  .page-card p,.sector-description{font-size:13px!important}
+}
+
+/* ===== Hero sector-rotator ===== */
+.hero-sectors{margin:-12px 0 28px;color:var(--accent-soft);font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.hero-sectors-label{color:#ffffff;margin-right:4px}
+.hero-sector+.hero-sector::before{content:" / ";color:rgba(255,255,255,.5)}
+.hero-sectors.is-rotating .hero-sector{display:none}
+.hero-sectors.is-rotating .hero-sector::before{content:none}
+.hero-sectors.is-rotating .hero-sector.is-active{display:inline-block;animation:sector-in .5s cubic-bezier(.2,.75,.25,1) both}
+@keyframes sector-in{from{opacity:0;transform:translateY(.4em)}to{opacity:1;transform:none}}
+
+/* ===== Specialist-CTA en lidmaatschap ===== */
+.specialist-card{display:grid;grid-template-columns:1.1fr .9fr;gap:6vw;align-items:end;padding:44px;border:1px solid var(--panel-line);background:var(--panel);backdrop-filter:blur(10px)}
+.specialist-card h2{margin:0;font-size:clamp(34px,4vw,56px);line-height:1.05}
+.specialist-copy p{margin:0 0 24px;color:#eef2f0;font-size:16px;line-height:1.7}
+.specialist-actions{display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+.membership-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:18px 0 0;padding:16px 22px;border:1px solid var(--panel-line);color:#ffffff;font-size:14px;font-weight:500}
+.membership-label{color:var(--accent-soft);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:760px){.specialist-card{grid-template-columns:1fr;gap:20px;padding:28px 22px}}
+
+/* ===== Projectfilter ===== */
+.project-filter{margin-bottom:34px}
+.project-card[hidden]{display:none!important}
+.category-pill[aria-pressed]{cursor:pointer}
+
+/* ===== Kaartenraster (disciplines, waarden) ===== */
+.value-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-bottom:58px}
+.value-card{padding:26px 24px;border:1px solid var(--panel-line);background:var(--panel);backdrop-filter:blur(8px)}
+.value-index{display:block;margin-bottom:16px;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.1em}
+.value-card h3{margin:0 0 10px;font-size:20px;line-height:1.25;color:#ffffff}
+.value-card p{margin:0;color:#eef2f0;font-size:14.5px;line-height:1.65}
+
+/* ===== Opdrachtgevers ===== */
+.client-list{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 58px;padding:0;list-style:none}
+.client-list li{padding:11px 16px;border:1px solid var(--panel-line);background:var(--panel);color:#ffffff;font-size:14px;font-weight:500}
+
+/* ===== Sollicitatieformulier ===== */
+.apply-form{max-width:750px;margin-top:10px;padding:32px;border:1px solid var(--panel-line);background:var(--panel);backdrop-filter:blur(10px)}
+.apply-form h3{margin:0 0 24px;font-size:26px;color:#ffffff}
+.form-row{display:grid;gap:8px;margin:0 0 18px;padding:0;border:0}
+.form-row label,.form-row legend{color:#ffffff;font-size:14px;font-weight:500;padding:0}
+.form-row legend{margin-bottom:8px}
+.apply-form input:not([type=radio]),.apply-form select,.apply-form textarea{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid rgba(255,255,255,.32);background:rgba(6,10,12,.55);color:#ffffff;font:inherit;font-size:15px;border-radius:0}
+.apply-form textarea{resize:vertical;min-height:120px}
+.apply-form input:focus-visible,.apply-form select:focus-visible,.apply-form textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.apply-form select option{background:#101719;color:#ffffff}
+.form-choices{display:flex;flex-wrap:wrap;gap:10px 24px}
+.form-choices label{display:inline-flex;align-items:center;gap:8px;font-weight:400}
+.form-choices input{accent-color:var(--accent);width:16px;height:16px}
+.form-note{margin:4px 0 20px;color:#e9eeec;font-size:13.5px;line-height:1.6}
+.apply-form .button{border:0;cursor:pointer;font:inherit;font-weight:600}
+@media(max-width:760px){.apply-form{padding:24px 18px}}
+
+/* ===== Layoutcorrecties na visuele controle ===== */
+.hero-home .hero-content{width:min(1060px,82vw)}
+.hero-home h1{font-size:clamp(56px,7vw,108px)!important}
+.home-page .hero-foot{right:calc(6.1vw + 150px)}
+@media(min-width:761px){
+  .site-footer{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px 48px;padding-top:34px;padding-bottom:30px}
+  .site-footer>p:not(.copyright){max-width:260px;line-height:1.5}
+  .site-footer .footer-nav{justify-content:center;font-size:13px;gap:8px 24px}
+  .site-footer .copyright{grid-column:1/-1;padding-top:18px;border-top:1px solid var(--line);color:#d5dcd9}
+  .site-footer .footer-brand{grid-row:1}
+}
+@media(min-width:761px){.site-footer{grid-template-columns:auto auto minmax(0,1fr) auto}}
+@media(max-width:760px){
+  .hero-foot span:last-child{display:none}
+  .home-page .hero-foot{right:7vw}
+  .site-footer .footer-nav{font-size:13px}
 }
