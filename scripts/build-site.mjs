@@ -65,7 +65,7 @@ ${route ? `  <link rel="preload" as="image" href="${asset(route, image || 'image
   <link rel="stylesheet" href="${asset(route, 'site.css?v=2')}">
   <script src="${asset(route, 'script.js?v=4')}" defer></script>
 ${interactive3d ? `  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script><script type="module" src="${asset(route, 'platform-3d.js?v=5')}"></script>\n` : ''}</head>
-<body${route ? ` class="interior-page" style="--page-backdrop:url('${esc(asset(route, image || 'images/tj-enterprise-offshore.png'))}')"` : ''}>
+<body${route ? ` class="interior-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"` : ''}>
 ${header(route)}
 <main id="main">${content}</main>
 ${footer(route)}

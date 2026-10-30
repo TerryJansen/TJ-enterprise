@@ -53,7 +53,11 @@ test('interior pages use one persistent route photo for their backdrop', async (
   const backdrop = projectsPage.match(/style="--page-backdrop:url\('([^']+)'\)"/)?.[1];
   const preload = projectsPage.match(/<link rel="preload" as="image" href="([^"]+)"/)?.[1];
   assert.ok(heroImage, 'projects page should have a hero image');
-  assert.equal(backdrop, heroImage, 'the page backdrop should reuse the hero photo');
+  assert.equal(
+    new URL(backdrop, 'https://site.test/TJ-enterprise/site.css?v=2').pathname,
+    new URL(heroImage, 'https://site.test/TJ-enterprise/projecten/').pathname,
+    'the page backdrop should resolve to the same photo as the hero',
+  );
   assert.equal(preload, heroImage, 'the route hero photo should be preloaded');
   assert.match(css, /body\.interior-page::before\{background:[^}]*var\(--page-backdrop\)/);
   assert.match(css, /\.interior-page \.page-hero \.hero-image,.interior-page \.page-hero \.hero-shade\{display:none\}/);
