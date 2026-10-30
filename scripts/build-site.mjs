@@ -43,7 +43,7 @@ function footer(from) {
 <footer class="site-footer"><a class="brand footer-brand" href="${routeHref(from, '')}"><img class="brand-logo" src="${asset(from, 'images/tj-enterprise-logo-transparent.png')}" alt="TJ Enterprise"></a><p>Onafhankelijke offshore platformbouw</p><a href="mailto:info@tjenterprise.nl">info@tjenterprise.nl</a><p class="copyright">© <span id="year"></span> TJ Enterprise</p></footer>`;
 }
 
-function shell({ route, title, description, content, image, interactive3d = false }) {
+function shell({ route, title, description, content, image, interactive3d = false, homepage = false }) {
   const canonical = `${publicUrl}${route ? `${route}/` : ''}`;
   const share = `${publicUrl}${image || 'images/tj-enterprise-offshore.png'}`;
   return `<!doctype html>
@@ -63,11 +63,13 @@ function shell({ route, title, description, content, image, interactive3d = fals
   <meta property="og:image" content="${esc(share)}">
   <title>${esc(title)} | TJ Enterprise</title>
   <link rel="stylesheet" href="${asset(route, 'styles.css?v=4')}">
-  <link rel="stylesheet" href="${asset(route, 'site.css?v=3')}">
-  <script src="${asset(route, 'script.js?v=4')}" defer></script>
+  <link rel="stylesheet" href="${asset(route, 'site.css?v=4')}">
+  <script src="${asset(route, 'script.js?v=5')}" defer></script>
 ${interactive3d ? `  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script><script type="module" src="${asset(route, 'platform-3d.js?v=5')}"></script>\n` : ''}</head>
 <body${route ? ` class="interior-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"` : ` class="home-page" style="--page-backdrop:url('${esc(image || 'images/tj-enterprise-offshore.png')}')"`}>
+${homepage ? `<video class="homepage-background-video" id="homepage-background-video" muted loop playsinline preload="metadata" poster="${asset(route, 'images/homepage-background-poster.jpg')}" aria-hidden="true" tabindex="-1"><source src="${asset(route, 'images/homepage-background.mp4')}" type="video/mp4"></video>` : ''}
 ${header(route)}
+${homepage ? `<button class="background-video-toggle" id="homepage-background-video-toggle" type="button" aria-controls="homepage-background-video" aria-label="Speel achtergrondvideo af" aria-pressed="false" hidden>Speel video</button>` : ''}
 <main id="main">${content}</main>
 ${footer(route)}
 </body>
@@ -170,7 +172,7 @@ for (const page of pages) {
   await writePage(page.route, html);
 }
 
-await writePage('', shell({ route: '', title: 'Offshoreplatformen voor de open zee', description: 'TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt voor de olie- en gassector.', content: homeContent(), interactive3d: true }));
+await writePage('', shell({ route: '', title: 'Offshoreplatformen voor de open zee', description: 'TJ Enterprise is een onafhankelijk bedrijf dat offshoreplatformen bouwt voor de olie- en gassector.', content: homeContent(), interactive3d: true, homepage: true }));
 
 for (const page of pages.filter((item) => item.route === 'projecten' || item.route.startsWith('projecten/'))) {
   if (page.route === 'projecten' || page.category) {

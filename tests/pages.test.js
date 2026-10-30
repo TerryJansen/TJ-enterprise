@@ -41,8 +41,27 @@ test('homepage retains the interactive crane-vessel scene from the remote update
   assert.match(homepage, /type="importmap"/);
   assert.match(homepage, /src="(?:\.\/)?platform-3d\.js\?v=5"/);
   assert.match(homepage, /styles\.css\?v=4/);
-  assert.match(homepage, /site\.css\?v=3/);
-  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=3/);
+  assert.match(homepage, /site\.css\?v=4/);
+  assert.match(homepage, /script\.js\?v=5/);
+  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=4/);
+});
+
+test('homepage includes a muted video background, a still poster, and a motion-aware toggle', async () => {
+  const homepage = await readFile(localFile(''), 'utf8');
+  const notFound = await readFile(path.join(root, '404.html'), 'utf8');
+  const css = await readFile(path.join(root, 'site.css'), 'utf8');
+  const script = await readFile(path.join(root, 'script.js'), 'utf8');
+
+  assert.match(homepage, /<video class="homepage-background-video" id="homepage-background-video" muted loop playsinline preload="metadata" poster="\.\/images\/homepage-background-poster\.jpg" aria-hidden="true" tabindex="-1">/);
+  assert.match(homepage, /<source src="\.\/images\/homepage-background\.mp4" type="video\/mp4">/);
+  assert.match(homepage, /id="homepage-background-video-toggle"[^>]*aria-pressed="false" hidden>Speel video<\/button>/);
+  assert.doesNotMatch(notFound, /id="homepage-background-video"/);
+  assert.match(css, /\.homepage-background-video\{position:fixed;z-index:-2;/);
+  assert.match(css, /body\.home-page::after\{content:"";position:fixed;z-index:-1/);
+  assert.match(script, /if \(!prefersReducedMotion\) playBackgroundVideo\(\)/);
+  assert.match(script, /reducedMotionPreference\.addEventListener/);
+  await access(path.join(root, 'images/homepage-background.mp4'));
+  await access(path.join(root, 'images/homepage-background-poster.jpg'));
 });
 
 test('homepage and interior pages use one persistent photo for their backdrop', async () => {
@@ -55,7 +74,7 @@ test('homepage and interior pages use one persistent photo for their backdrop', 
   const homePreload = homepage.match(/<link rel="preload" as="image" href="([^"]+)"/)?.[1];
   assert.ok(homeHeroImage, 'homepage should retain its hero image source');
   assert.equal(
-    new URL(homeBackdrop, 'https://site.test/TJ-enterprise/site.css?v=3').pathname,
+    new URL(homeBackdrop, 'https://site.test/TJ-enterprise/site.css?v=4').pathname,
     new URL(homeHeroImage, 'https://site.test/TJ-enterprise/').pathname,
     'the homepage backdrop should use the same photo as its hero',
   );
@@ -67,12 +86,13 @@ test('homepage and interior pages use one persistent photo for their backdrop', 
   const preload = projectsPage.match(/<link rel="preload" as="image" href="([^"]+)"/)?.[1];
   assert.ok(heroImage, 'projects page should have a hero image');
   assert.equal(
-    new URL(backdrop, 'https://site.test/TJ-enterprise/site.css?v=3').pathname,
+    new URL(backdrop, 'https://site.test/TJ-enterprise/site.css?v=4').pathname,
     new URL(heroImage, 'https://site.test/TJ-enterprise/projecten/').pathname,
     'the page backdrop should resolve to the same photo as the hero',
   );
   assert.equal(preload, heroImage, 'the route hero photo should be preloaded');
-  assert.match(css, /body\.interior-page::before,body\.home-page::before\{background:[^}]*var\(--page-backdrop\)/);
+  assert.match(css, /body\.interior-page::before\{background:[^}]*var\(--page-backdrop\)/);
+  assert.match(css, /body\.home-page::before\{z-index:-3;background:var\(--page-backdrop\)/);
   assert.match(css, /\.interior-page \.page-hero \.hero-image,.interior-page \.page-hero \.hero-shade,.home-page \.hero-home \.hero-image,.home-page \.hero-home \.hero-shade\{display:none\}/);
 });
 

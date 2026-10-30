@@ -20,7 +20,40 @@ navigation.querySelectorAll('a').forEach((link) => {
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reducedMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const prefersReducedMotion = reducedMotionPreference.matches;
+const homepageBackgroundVideo = document.querySelector('#homepage-background-video');
+const backgroundVideoToggle = document.querySelector('#homepage-background-video-toggle');
+
+if (homepageBackgroundVideo && backgroundVideoToggle) {
+  let pausedByUser = false;
+  const updateVideoToggle = () => {
+    const playing = !homepageBackgroundVideo.paused && !homepageBackgroundVideo.ended;
+    backgroundVideoToggle.setAttribute('aria-pressed', String(playing));
+    backgroundVideoToggle.setAttribute('aria-label', playing ? 'Pauzeer achtergrondvideo' : 'Speel achtergrondvideo af');
+    backgroundVideoToggle.textContent = playing ? 'Pauzeer video' : 'Speel video';
+  };
+  const playBackgroundVideo = () => homepageBackgroundVideo.play().catch(updateVideoToggle);
+
+  backgroundVideoToggle.hidden = false;
+  backgroundVideoToggle.addEventListener('click', () => {
+    if (homepageBackgroundVideo.paused) {
+      pausedByUser = false;
+      playBackgroundVideo();
+    } else {
+      pausedByUser = true;
+      homepageBackgroundVideo.pause();
+    }
+  });
+  homepageBackgroundVideo.addEventListener('play', updateVideoToggle);
+  homepageBackgroundVideo.addEventListener('pause', updateVideoToggle);
+  reducedMotionPreference.addEventListener('change', (event) => {
+    if (event.matches) homepageBackgroundVideo.pause();
+    else if (!pausedByUser) playBackgroundVideo();
+  });
+  if (!prefersReducedMotion) playBackgroundVideo();
+  updateVideoToggle();
+}
 
 function splitVisibleTextIntoLetters() {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {

@@ -1,8 +1,14 @@
 :root{--accent-soft:#f2b36d;--panel:rgba(11,17,19,.62);--panel-line:rgba(246,248,246,.19);--copy:#d2d9d6;--content-width:1440px}
 html{scroll-padding-top:92px}
 body{background-color:var(--ink)}
-body.interior-page::before,body.home-page::before{background:linear-gradient(180deg,rgba(10,16,18,.32) 0%,rgba(10,16,18,.72) 100%),linear-gradient(90deg,rgba(10,16,18,.54) 0%,rgba(10,16,18,.18) 70%),var(--page-backdrop) var(--platform-position)/cover no-repeat}
+body.interior-page::before{background:linear-gradient(180deg,rgba(10,16,18,.32) 0%,rgba(10,16,18,.72) 100%),linear-gradient(90deg,rgba(10,16,18,.54) 0%,rgba(10,16,18,.18) 70%),var(--page-backdrop) var(--platform-position)/cover no-repeat}
+body.home-page::before{z-index:-3;background:var(--page-backdrop) var(--platform-position)/cover no-repeat}
+body.home-page::after{content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,16,18,.32) 0%,rgba(10,16,18,.72) 100%),linear-gradient(90deg,rgba(10,16,18,.54) 0%,rgba(10,16,18,.18) 70%)}
+.homepage-background-video{position:fixed;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--platform-position);pointer-events:none}
 .interior-page .page-hero .hero-image,.interior-page .page-hero .hero-shade,.home-page .hero-home .hero-image,.home-page .hero-home .hero-shade{display:none}
+.home-page .background-video-toggle{position:fixed;right:6vw;bottom:16px;z-index:30;min-height:36px;padding:0 12px;border:1px solid rgba(255,255,255,.5);background:rgba(12,18,20,.88);color:#f5f6f3;font:500 10px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.home-page .background-video-toggle[hidden]{display:none}
+.home-page .background-video-toggle:not([hidden]){display:inline-flex;align-items:center;justify-content:center}
 .site-header{position:fixed;z-index:20;background:linear-gradient(180deg,rgba(9,14,16,.83),rgba(9,14,16,.42));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.14)}
 .site-nav>a[aria-current=page]{color:var(--accent)!important}
 .brand-logo{max-width:190px;object-fit:contain}
@@ -158,3 +164,4 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .page-hero h1{font-size:42px}
   .case-image{aspect-ratio:1.05}
 }
+@media(max-width:760px){.home-page .background-video-toggle{right:7vw;bottom:16px}}
