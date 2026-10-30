@@ -41,26 +41,39 @@ test('homepage retains the interactive crane-vessel scene from the remote update
   assert.match(homepage, /type="importmap"/);
   assert.match(homepage, /src="(?:\.\/)?platform-3d\.js\?v=5"/);
   assert.match(homepage, /styles\.css\?v=4/);
-  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=2/);
+  assert.match(homepage, /site\.css\?v=3/);
+  assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css\?v=3/);
 });
 
-test('interior pages use one persistent route photo for their backdrop', async () => {
+test('homepage and interior pages use one persistent photo for their backdrop', async () => {
   const homepage = await readFile(localFile(''), 'utf8');
   const projectsPage = await readFile(localFile('projecten'), 'utf8');
   const css = await readFile(path.join(root, 'site.css'), 'utf8');
-  assert.doesNotMatch(homepage, /class="interior-page"/);
+  assert.match(homepage, /<body class="home-page" style="--page-backdrop:url\('images\/tj-enterprise-offshore\.png'\)"/);
+  const homeHeroImage = homepage.match(/<img class="hero-image" src="([^"]+)"/)?.[1];
+  const homeBackdrop = homepage.match(/style="--page-backdrop:url\('([^']+)'\)"/)?.[1];
+  const homePreload = homepage.match(/<link rel="preload" as="image" href="([^"]+)"/)?.[1];
+  assert.ok(homeHeroImage, 'homepage should retain its hero image source');
+  assert.equal(
+    new URL(homeBackdrop, 'https://site.test/TJ-enterprise/site.css?v=3').pathname,
+    new URL(homeHeroImage, 'https://site.test/TJ-enterprise/').pathname,
+    'the homepage backdrop should use the same photo as its hero',
+  );
+  assert.equal(homePreload, homeHeroImage, 'the homepage backdrop photo should be preloaded');
+
+  assert.match(projectsPage, /class="interior-page"/);
   const heroImage = projectsPage.match(/<img class="hero-image" src="([^"]+)"/)?.[1];
   const backdrop = projectsPage.match(/style="--page-backdrop:url\('([^']+)'\)"/)?.[1];
   const preload = projectsPage.match(/<link rel="preload" as="image" href="([^"]+)"/)?.[1];
   assert.ok(heroImage, 'projects page should have a hero image');
   assert.equal(
-    new URL(backdrop, 'https://site.test/TJ-enterprise/site.css?v=2').pathname,
+    new URL(backdrop, 'https://site.test/TJ-enterprise/site.css?v=3').pathname,
     new URL(heroImage, 'https://site.test/TJ-enterprise/projecten/').pathname,
     'the page backdrop should resolve to the same photo as the hero',
   );
   assert.equal(preload, heroImage, 'the route hero photo should be preloaded');
-  assert.match(css, /body\.interior-page::before\{background:[^}]*var\(--page-backdrop\)/);
-  assert.match(css, /\.interior-page \.page-hero \.hero-image,.interior-page \.page-hero \.hero-shade\{display:none\}/);
+  assert.match(css, /body\.interior-page::before,body\.home-page::before\{background:[^}]*var\(--page-backdrop\)/);
+  assert.match(css, /\.interior-page \.page-hero \.hero-image,.interior-page \.page-hero \.hero-shade,.home-page \.hero-home \.hero-image,.home-page \.hero-home \.hero-shade\{display:none\}/);
 });
 
 test('every project has a unique detail page and a local project image', async () => {
