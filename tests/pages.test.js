@@ -39,7 +39,7 @@ test('homepage retains the interactive crane-vessel scene from the remote update
   assert.match(homepage, /id="platform-canvas"/);
   assert.match(homepage, /Draai het schip\./);
   assert.match(homepage, /type="importmap"/);
-  assert.match(homepage, /src="(?:\.\/)?platform-3d\.js\?v=4"/);
+  assert.match(homepage, /src="(?:\.\/)?platform-3d\.js\?v=5"/);
   assert.match(homepage, /styles\.css\?v=4/);
   assert.match(await readFile(localFile('projecten'), 'utf8'), /site\.css/);
 });
